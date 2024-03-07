@@ -1,24 +1,67 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const showNavbar = () => {
+    return (
+      <nav className="navbar">
+        <div className="navbar-container">
+          <a href="/" className="navbar-logo">
+            <img src='/src/logo.png'/>
+          </a>
+          <div className={click ? 'nav-menu active' : 'nav-menu'}>
+            <ul className="nav nav-menu-items">
+              <li className="nav-item">
+                <a href="/" className="nav-links">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/about" className="nav-links">
+                  About
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/Events" className="nav-links">
+                    Events
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/contact" className="nav-links">
+                  Contact
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/testimonial" className="nav-links">
+                  Testimonial
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a href="/login" className="nav-links">
+                  Login
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/signup" className="nav-links">
+                  Sign up
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    );
+  };
+
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">
-        <Link to="/">
-          <img src="/logo.png" alt="Logo" />
-        </Link>
-      </div>
-      <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/events">Events</Link></li>
-        <li><Link to="/testimonial">Testimonial</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/signup">Signup</Link></li>
-      </ul>
-    </nav>
+    <div onClick={closeMobileMenu}>
+      {showNavbar()}
+    </div>
   );
 };
 
