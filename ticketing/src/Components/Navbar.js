@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import logoImage from '../images/logo.png'
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -11,7 +12,7 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <a href="/" className="navbar-logo">
-            <img src='/src/logo.png'/>
+            <img className='h-12' src={logoImage} alt='logo '/>
           </a>
           <div className={click ? 'nav-menu active' : 'nav-menu'}>
             <ul className="nav nav-menu-items">
