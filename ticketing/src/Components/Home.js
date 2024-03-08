@@ -6,6 +6,7 @@ const Home = () => {
     <div>
      <h1 className='home'>Welcome to the Home Page</h1>
      <div>
+      
      <img className='w-full h-screen overflow-hidden'
       src={backgroundImage}
       
