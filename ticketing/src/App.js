@@ -7,7 +7,7 @@ import Events from './Components/Events';
 import Testimonial from './Components/Testimonial';
 import Contact from './Components/Contact';
 import Login from './Components/Login';
-import Signup from './Components/Signup';
+
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/testimonial" element={<Testimonial />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        
       </Routes>
     </Router>
   );
