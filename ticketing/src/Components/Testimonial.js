@@ -1,9 +1,12 @@
-// Testimonial.js
-
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import John_Morgan from '../images/John_Morgan.jpg';
+import Ellie_Anderson from '../images/Ellie_Anderson.jpg';
+import Nia_Adebayo from '../images/Nia_Adebayo.jpg';
+import Rigo_Louie from '../images/Rigo_Louie.jpg';
+import Mia_Williams from '../images/Mia_Williams.jpg';
 
 const Testimonial = () => {
   const settings = {
@@ -17,33 +20,33 @@ const Testimonial = () => {
   const data = [
     {
       name: `James Kin`,
-      img: `/images/John_Morgan.jpg`,
+      img: John_Morgan,
       review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
     },
     {
       name: `Ellie Mike`,
-      img: `/students/Ellie_Anderson.jpg`,
+      img: Ellie_Anderson,
       review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
     },
     {
       name: `Maurine Wam`,
-      img: `/images/Nia_Adebayo.jpg`,
+      img: Nia_Adebayo,
       review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
     },
     {
       name: `Rigo luis`,
-      img: `/images/Rigo_Louie.jpg`,
+      img: Rigo_Louie,
       review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
     },
     {
       name: `Diko Milliams`,
-      img: `/images/Mia_Williams.jpg`,
+      img: Mia_Williams,
       review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
     },
   ];
 
   return (
-    <div className='w-3/4 m-auto'>
+    <div className='w-3/4 m-auto mt-10'> {/* Added mt-10 for top margin */}
       <div className="mt-20">
         <Slider {...settings}>
           {data.map((d) => (

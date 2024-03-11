@@ -12,7 +12,12 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <a href="/" className="navbar-logo">
-            <img className='h-12' src={logoImage} alt='logo '/>
+          <div className=' '>
+          <img className='h-20 mr-72 inline-block float-left ' src={logoImage} alt='logo' />
+
+          </div>
+
+
           </a>
           <div className={click ? 'nav-menu active' : 'nav-menu'}>
             <ul className="nav nav-menu-items">
@@ -42,16 +47,20 @@ const Navbar = () => {
                 </a>
               </li>
 
-              <li className="nav-item">
-                <a href="/login" className="nav-links">
-                  Login
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="/signup" className="nav-links">
-                  Sign up
-                </a>
-              </li>
+              <div className="flex justify-end ml-auto"> 
+                <li className="nav-item "> 
+                 <a href="/createevent" className="nav-links">
+                   Create Event
+                                </a>
+                    </li>
+                    <li className="nav-item">
+                        <a href="/login" className="nav-links">
+                            Login
+                        </a>
+                    </li>
+                </div>
+
+             
             </ul>
           </div>
         </div>
