@@ -7,7 +7,7 @@ const Home = () => {
      <h1 className='home'>Welcome to the Home Page</h1>
 
      <div class='absolute top-0 left-0 z-0 w-full h-screen overflow-hidden'>
-    <img class='w-full h-4/5 object-cover object-bottom mx-auto' src={backgroundImage} alt="Home Page Image" />
+    <img class='w-full h-full object-cover object-bottom mx-auto ' src={backgroundImage} alt="Home Page Image" />
 </div>
 
 

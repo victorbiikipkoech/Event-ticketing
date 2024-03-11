@@ -18,21 +18,21 @@ const Login = () => {
           <form className="flex justify-center items-center" action="">
             {!isLogin && (
               <div className="flex flex-col"> {/* Added div wrapper */}
-                <label>First Name</label>
+                <label>User name</label>
                 <input
                   className="border rounded mx-2 mt-1"
                   type="text"
-                  placeholder="Enter your first name"
+                  placeholder="Enter your username"
                 />
               </div>
             )}
             {!isLogin && (
               <div className="flex flex-col"> {/* Added div wrapper */}
-                <label>Last Name</label>
+                <label>Contact</label>
                 <input
                   className="border rounded mx-2 mt-1"
                   type="text"
-                  placeholder="Enter your last name"
+                  placeholder="Enter your phone number"
                 />
               </div>
             )}

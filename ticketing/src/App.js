@@ -6,6 +6,7 @@ import About from './Components/About';
 import Events from './Components/Events';
 import Testimonial from './Components/Testimonial';
 import Contact from './Components/Contact';
+import CreateEvent from './Components/CreateEvent';
 import Login from './Components/Login';
 
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/events" element={<Events />} />
         <Route path="/testimonial" element={<Testimonial />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path='createevent' element={<CreateEvent/>}/>
         <Route path="/login" element={<Login />} />
         
       </Routes>
