@@ -4,7 +4,7 @@ import logoImage from '../images/logo.png'
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+  // const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   const showNavbar = () => {
@@ -50,6 +50,17 @@ const Navbar = () => {
               <li className="nav-item">
                 <a href="/signup" className="nav-links">
                   Sign up
+                </a>
+                
+              </li>
+              <li className="nav-item">
+                <a href="/companysignup" className="nav-links">
+                  Company Signup
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/companylogin" className="nav-links">
+                  Company Login
                 </a>
               </li>
             </ul>
