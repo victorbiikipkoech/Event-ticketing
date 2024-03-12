@@ -4,7 +4,7 @@ import logoImage from '../images/logo.png'
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+  // const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   const showNavbar = () => {
@@ -47,20 +47,44 @@ const Navbar = () => {
                 </a>
               </li>
 
+
+              <li className="nav-item">
+                <a href="/login" className="nav-links">
+                  Login
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/signup" className="nav-links">
+                  Sign up
+                </a>
+                
+              </li>
+//               <li className="nav-item">
+//                 <a href="/companysignup" className="nav-links">
+//                   Company Signup
+//                 </a>
+//               </li>
+//               <li className="nav-item">
+//                 <a href="/companylogin" className="nav-links">
+//                   Company Login
+//                 </a>
+//               </li>
+
               <div className="flex justify-end ml-auto"> 
                 <li className="nav-item "> 
-                 <a href="/createevent" className="nav-links">
+                 <a href="/companysingup" className="nav-links">
                    Create Event
                                 </a>
                     </li>
                     <li className="nav-item">
-                        <a href="/login" className="nav-links">
+                        <a href="/companylogin" className="nav-links">
                             Login
                         </a>
                     </li>
                 </div>
 
              
+
             </ul>
           </div>
         </div>
