@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import eventData from './eventData';
+import EventPopup from './EventPopup'; // Import the popup component
 
 const Events = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredEvents, setFilteredEvents] = useState([]);
+  const [visibleDescription, setVisibleDescription] = useState({});
+  const [selectedEvent, setSelectedEvent] = useState(null); // State to store the selected event
 
   const handleSearch = () => {
     const filtered = eventData.filter(event =>
@@ -15,6 +18,24 @@ const Events = () => {
   const handleReset = () => {
     setSearchQuery('');
     setFilteredEvents([]);
+    setVisibleDescription({});
+  };
+
+  const toggleDescription = id => {
+    setVisibleDescription(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  // Function to handle when "View Event" button is clicked
+  const handleViewEvent = event => {
+    setSelectedEvent(event);
+  };
+
+  // Function to close the popup
+  const handleClosePopup = () => {
+    setSelectedEvent(null);
   };
 
   return (
@@ -23,7 +44,7 @@ const Events = () => {
         <input
           type="text"
           placeholder="Search by event name"
-          className="w-4/6 px-5 py-2  ml-40 border rounded-l-md focus:outline-none"
+          className="w-4/6 px-5 py-2 ml-40 border rounded-l-md focus:outline-none"
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
         />
@@ -46,13 +67,25 @@ const Events = () => {
           <img className="w-full" src={event.image} alt={event.name} />
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2 text-white">{event.name}</div>
-            <p className="text-white text-base">{event.description}</p>
+            {visibleDescription[event.id] && (
+              <p className="text-white text-base">{event.description}</p>
+            )}
           </div>
           <div className="px-6 pt-4 pb-2">
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{event.date}</span>
+            <button
+              className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
+              onClick={() => handleViewEvent(event)} // Pass the event to the handleViewEvent function
+            >
+              View Event
+            </button>
           </div>
         </div>
       ))}
+      
+      {/* Render the EventPopup component if selectedEvent is not null */}
+      {selectedEvent && (
+        <EventPopup event={selectedEvent} onClose={handleClosePopup} />
+      )}
     </div>
   );
 };

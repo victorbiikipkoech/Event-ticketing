@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch+Pop&display=swap');
+
+.rubik-glitch pop-regular {
+  font-family: "Rubik Glitch Pop", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 
 
 
@@ -8,7 +15,7 @@
   right: 0;
   z-index: 10;
   background-color:  white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(176, 170, 153, 0.881), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s ease-in-out;
 }
 
@@ -21,12 +28,7 @@
   padding: 0 24px;
 }
 
-.navbar-logo {
-  /* color: #fff;
-  text-decoration: none; */
-  font-weight: bold;
-  /* font-size: 3.5rem; */
-}
+
 
 .nav-menu {
   display: flex;
@@ -82,22 +84,9 @@
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    /* transform: ${({ click }) => (click ? 'translateX(0)' : 'translateX(-100%)');};
-    transition: transform 0.3s ease-in-out; */
+  
   }
 }
 
 
 
-/* Home css */
-
-.home{
-  text-align: center;
-}
-.description{
-  text-align: center;
-  align-items: center;
-}
-.homepage{
-  right: 100%;
-}

@@ -1,5 +1,5 @@
 import EventImage1 from '../images/colorfest.jpg';
-import EventImage2 from '../images/halloween.jpg';
+import EventImage2 from '../images/halloween2.jpg';
 import EventImage3 from '../images/rally.jpg';
 import EventImage4 from '../images/music.jpg';
 import EventImage5 from '../images/Culture.jpeg';
