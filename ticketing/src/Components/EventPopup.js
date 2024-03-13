@@ -55,19 +55,6 @@ const EventPopup = ({ event, onClose }) => {
         <p className="mb-2"><strong>Time:</strong> {event.time}</p>
         <p><strong>Number of People:</strong> {event.capacity}</p>
         
-        <div className="flex justify-between mt-6">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2" onClick={onClose}>
-            Close
-          </button>
-          <button className="bg-green-500 text-white px-4 py-2 rounded-md mr-2">
-            Buy Ticket
-          </button>
-        </div>
-        
-        <div className="mt-6">
-          <AddToCalendar event={calendarEvent} />
-        </div>
-        
         {/* Ticket Payment Form */}
         <div className="mt-6">
           <h3 className="text-xl font-semibold mb-2">Ticket Payment</h3>
@@ -121,13 +108,22 @@ const EventPopup = ({ event, onClose }) => {
             <p>Event Name: {eventName}</p>
             <p>Ticket Type: {ticketType}</p>
             <p>Number of Tickets: {numTickets}</p>
-            <p>Total Amount: ${totalAmount}</p>
+            <p>Total Amount: ksh.{totalAmount}</p>
           </div>
         </div>
         {/* End Ticket Payment Form */}
+
+        <div className="flex justify-end mt-6">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2" onClick={onClose}>
+            Close
+          </button>
+          <button className="bg-green-500 text-white px-4 py-2 rounded-md">
+            Buy Ticket
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default EventPopup;
+export default EventPopup;
