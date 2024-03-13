@@ -14,7 +14,7 @@ const Home = () => {
       </div>
 
       <div className='relative z-10 text-white text-center mt-56'>
-        <p className='text-5xl font-extrabold leading-none text-transparent bg-clip-text bg-gradient-to-br from-white to-white'>
+        <p className='text-white text-5xl font-extrabold '>
           Unlock unforgettable experiences<br/>with just a ticket<br/>Your gateway to excitement<br/>awaits!
         </p>
       </div>

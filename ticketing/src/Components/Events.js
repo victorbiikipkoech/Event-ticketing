@@ -39,7 +39,7 @@ const Events = () => {
   };
 
   return (
-    <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-20">
+    <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28">
       <div className="relative flex items-center w-full mb-4">
         <input
           type="text"
@@ -64,7 +64,7 @@ const Events = () => {
 
       {(filteredEvents.length > 0 ? filteredEvents : eventData).map(event => (
         <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg">
-          <img className="w-full" src={event.image} alt={event.name} />
+          <img className="w-80 h-80" src={event.image} alt={event.name} />
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2 text-white">{event.name}</div>
             {visibleDescription[event.id] && (
