@@ -7,6 +7,7 @@ import Ellie_Anderson from '../images/Ellie_Anderson.jpg';
 import Nia_Adebayo from '../images/Nia_Adebayo.jpg';
 import Rigo_Louie from '../images/Rigo_Louie.jpg';
 import Mia_Williams from '../images/Mia_Williams.jpg';
+import Footer from './Footer'; // Import the Footer component
 
 const Testimonial = () => {
   const settings = {
@@ -46,7 +47,7 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className='w-3/4 m-auto mt-10'> {/* Added mt-10 for top margin */}
+    <div className='w-full h-full flex flex-col justify-between'> {/* Adjusted to full screen height */}
       <div className="mt-20">
         <Slider {...settings}>
           {data.map((d) => (
@@ -64,6 +65,8 @@ const Testimonial = () => {
           ))}
         </Slider>
       </div>
+      
+      <Footer /> {/* Include the Footer component */}
     </div>
   );
 }
