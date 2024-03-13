@@ -4,6 +4,8 @@ import EventImage3 from '../images/rally.jpg';
 import EventImage4 from '../images/music.jpg';
 import EventImage5 from '../images/Culture.jpeg';
 import EventImage6 from '../images/food.jpg';
+import EventImage7 from '../images/agritech.jpg';
+import EventImage8 from '../images/nfl.jpeg';
 
 const eventData = [
   {
@@ -52,6 +54,22 @@ const eventData = [
     description: 'Feast at the Street Food Festival: A culinary journey of global tastes and local delights! Secure your tickets for an epicurean adventure.',
     date: '2024-07-10',
     image: EventImage6,
+    style: { width: '300px', height: '350px', objectFit: 'cover' }
+  },
+  {
+    id: 7,
+    name: 'AGRI TECH EVENT',
+    description: 'Dive into innovation at the AgriTech Event, where technology transforms sustainable farming.',
+    date: '2024-08-17',
+    image: EventImage7,
+    style: { width: '300px', height: '350px', objectFit: 'cover' }
+  },
+  {
+    id: 8,
+    name: 'NFL EVENT',
+    description: 'Immerse yourself in the electric atmosphere of NFL action, where grit meets grace under the stadium lights, and every moment is a heartbeat away from history.',
+    date: '2024-09-10',
+    image: EventImage8,
     style: { width: '300px', height: '350px', objectFit: 'cover' }
   },
 ];
