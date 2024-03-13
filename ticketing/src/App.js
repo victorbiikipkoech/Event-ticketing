@@ -8,9 +8,8 @@ import Testimonial from './Components/Testimonial';
 import Contact from './Components/Contact';
 import CreateEvent from './Components/CreateEvent';
 import Login from './Components/Login';
-import Signup from './Components/Signup';
-import CompanySignup from './Components/CompanySignup'
-import CompanyLogin from './Components/CompanyLogin'
+import CompanySignup from './Components/CompanySignup';
+import CompanyLogin from './Components/CompanyLogin';
 
 
 const App = () => {
@@ -25,7 +24,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path='createevent' element={<CreateEvent/>}/>
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+      
         <Route path="/companysignup" element={<CompanySignup />} />
         <Route path="/companylogin" element={<CompanyLogin />} />
 

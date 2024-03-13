@@ -55,20 +55,20 @@ const Login = () => {
           </div>
         </form>
         <div>
-          <button className="bg-[#f7bf0c] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black hover:scale-105 duration-700">
+          <button className="bg-[#text-blue-500] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black hover:scale-105 duration-700">
             {isLogin ? 'Login' : 'Sign Up'}
           </button>
         </div>
-        <div>
+        {/* <div>
           <h3>or login with:</h3>
           <div className="flex justify-between">
             <FaGoogle className="cursor-pointer" />
             <FaApple className="cursor-pointer" />
           </div>
-        </div>
+        </div> */}
         <div className="mt-4">
           <button
-            className="text-[#f7bf0c] font-semibold hover:text-yellow-400"
+            className="text-[#ffa500] font-semibold hover:text-yellow-400"
             onClick={handleToggle}
           >
             {isLogin ? 'Create an account' : 'Already have an account? Login'}

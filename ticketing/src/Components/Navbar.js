@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import logoImage from '../images/logo.png'
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -48,36 +50,15 @@ const Navbar = () => {
               </li>
 
 
-              <li className="nav-item">
-                <a href="/login" className="nav-links">
-                  Login
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="/signup" className="nav-links">
-                  Sign up
-                </a>
-                
-              </li>
-//               <li className="nav-item">
-//                 <a href="/companysignup" className="nav-links">
-//                   Company Signup
-//                 </a>
-//               </li>
-//               <li className="nav-item">
-//                 <a href="/companylogin" className="nav-links">
-//                   Company Login
-//                 </a>
-//               </li>
-
               <div className="flex justify-end ml-auto"> 
                 <li className="nav-item "> 
-                 <a href="/companysingup" className="nav-links">
+                <Link to="/companylogin" className="nav-links">
                    Create Event
-                                </a>
+                </Link>
+
                     </li>
                     <li className="nav-item">
-                        <a href="/companylogin" className="nav-links">
+                        <a href="/login" className="nav-links">
                             Login
                         </a>
                     </li>

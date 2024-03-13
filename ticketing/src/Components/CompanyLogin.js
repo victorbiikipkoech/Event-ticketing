@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+
 
 function LoginForm() {
   const [companyEmail, setCompanyEmail] = useState('');
@@ -14,7 +17,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-10 bg-white rounded-lg shadow-md">
+    <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">Login</h2>
       <form onSubmit={handleSubmit} className="p-4 mt-2">
         <label className="block mb-2">
@@ -41,6 +44,12 @@ function LoginForm() {
         >
           Login
         </button>
+        <div className="mt-4">
+          <p>Don't have an account? <Link to="/companysignup" className="text-blue-500">Register</Link></p>
+
+
+        </div>
+
       </form>
     </div>
   );
