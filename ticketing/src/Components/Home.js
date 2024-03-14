@@ -15,7 +15,7 @@ const Home = () => {
       </div>
 
       {/* Content */}
-      <div className='relative z-10 text-white text-center mt-56'>
+      <div className='relative z-10 text-center mt-20'>
         <p className='text-white text-5xl font-extrabold '>
           Unlock unforgettable experiences<br/>with just a ticket<br/>Your gateway to excitement<br/>awaits!
         </p>
