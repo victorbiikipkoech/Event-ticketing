@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { FaGoogle, FaApple } from 'react-icons/fa';
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(true); 
+  const [isLogin, setIsLogin] = useState(true);
+  
 
   const handleToggle = () => {
     setIsLogin(!isLogin);
@@ -17,7 +18,7 @@ const Login = () => {
         <form className="flex flex-col space-y-4" action="">
           {!isLogin && (
             <div className="flex flex-col">
-              <label className="mb-1">User name</label>
+              <label className="mb-1">Username</label>
               <input
                 className="border rounded px-2 py-1"
                 type="text"
@@ -36,11 +37,11 @@ const Login = () => {
             </div>
           )}
           <div className="flex flex-col">
-            <label className="mb-1">Contact</label>
+            <label className="mb-1">Username</label>
             <input
               className="border rounded px-2 py-1"
               type="email"
-              placeholder="Enter your contact"
+              placeholder="Enter your username"
               required
             />
           </div>
