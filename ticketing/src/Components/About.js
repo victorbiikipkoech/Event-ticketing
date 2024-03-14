@@ -2,6 +2,8 @@ import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import AboutImage from '../images/about.jpg'
 
+
+
 const About = () => {
   return (
     <div className="bg-gradient-to-b from-gray-200 to-gray-300 min-h-screen flex flex-col items-center justify-center p-8">
@@ -40,6 +42,7 @@ const About = () => {
         </div>
 
       </div>
+     
     </div>
   );
 };

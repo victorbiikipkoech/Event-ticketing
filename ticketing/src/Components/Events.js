@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from './Footer';
 import eventData from './eventData';
 import EventPopup from './EventPopup'; // Import the popup component
 
@@ -54,12 +55,12 @@ const Events = () => {
         >
           Search
         </button>
-        <button
+        {/* <button
           className="bg-gray-400 text-white px-4 py-2 rounded-md ml-2"
           onClick={handleReset}
         >
           Reset
-        </button>
+        </button> */}
       </div>
 
       {(filteredEvents.length > 0 ? filteredEvents : eventData).map(event => (
@@ -87,6 +88,8 @@ const Events = () => {
         <EventPopup event={selectedEvent} onClose={handleClosePopup} />
       )}
     </div>
+
+      <Footer/>
   );
 };
 

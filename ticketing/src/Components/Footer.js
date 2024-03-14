@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaPhone, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -21,13 +21,24 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-item" onClick={() => handleNavigation('/contact')}>
-          <h3 className="text-lg font-bold mb-4 cursor-pointer">Contact Us</h3>
+          <h3 className="text-lg font-bold mb-2 cursor-pointer text-blue-500">Contact Us</h3>
+          <div className="flex items-center mb-2">
+            <FaPhone className="mr-2" />
+            <span>+1234567890</span>
+          </div>
+          <div className="flex items-center">
+            <FaWhatsapp className="mr-2" />
+            <span>+1234567890</span>
+          </div>
         </div>
         <div className="footer-item" onClick={() => handleNavigation('/')}>
-          <h3 className="text-lg font-bold mb-4 cursor-pointer">Home</h3>
+          <h3 className="text-lg font-bold mb-4 cursor-pointer text-blue-500">Home</h3>
+          <p className="mb-2">123 Street, City</p>
+          <p>Country</p>
         </div>
         <div className="footer-item" onClick={() => handleNavigation('/about')}>
-          <h3 className="text-lg font-bold mb-4 cursor-pointer">About Us</h3>
+          <h3 className="text-lg font-bold mb-4 cursor-pointer text-blue-500">About Us</h3>
+          <p>Learn more about our mission and team.</p>
         </div>
       </div>
     </footer>
