@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer'; // Import the Footer component
 
 const About = () => {
   return (
@@ -33,6 +34,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Footer /> {/* Include the Footer component */}
     </div>
   );
 };

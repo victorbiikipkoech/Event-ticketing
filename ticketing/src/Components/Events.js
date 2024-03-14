@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from './Footer';
 import eventData from './eventData';
 import EventPopup from './EventPopup'; // Import the popup component
 
@@ -87,6 +88,8 @@ const Events = () => {
         <EventPopup event={selectedEvent} onClose={handleClosePopup} />
       )}
     </div>
+
+      <Footer/>
   );
 };
 

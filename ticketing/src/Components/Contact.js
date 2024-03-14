@@ -1,3 +1,6 @@
+
+import React from 'react';
+import Footer from './Footer'; // Import the Footer component
 import axios from 'axios'
 import { useState, } from 'react'
 
@@ -89,7 +92,8 @@ function Contact() {
           Submit
         </button>
       </form>
-    </div>
+    </div>  
+       <Footer className="absolute bottom-0 left-0 w-full" /> {/* Position the Footer at the bottom */}
 
 
   )
