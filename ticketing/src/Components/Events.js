@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import eventData from './eventData';
 import EventPopup from './EventPopup'; // Import the popup component
+import Footer from './Footer'; // Import the Footer component
 
 const Events = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,55 +40,61 @@ const Events = () => {
   };
 
   return (
-    <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28">
-      <div className="relative flex items-center w-full mb-4">
-        <input
-          type="text"
-          placeholder="Search by event name"
-          className="w-4/6 px-5 py-2 ml-40 border rounded-l-md focus:outline-none"
-          value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
-        />
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded-r-md ml-2"
-          onClick={handleSearch}
-        >
-          Search
-        </button>
-        <button
-          className="bg-gray-400 text-white px-4 py-2 rounded-md ml-2"
-          onClick={handleReset}
-        >
-          Reset
-        </button>
-      </div>
-
-      {(filteredEvents.length > 0 ? filteredEvents : eventData).map(event => (
-        <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg">
-          <img className="w-80 h-80" src={event.image} alt={event.name} />
-          <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2 text-white">{event.name}</div>
-            {visibleDescription[event.id] && (
-              <p className="text-white text-base">{event.description}</p>
-            )}
-          </div>
-          <div className="px-6 pt-4 pb-2">
-            <button
-              className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
-              onClick={() => handleViewEvent(event)} // Pass the event to the handleViewEvent function
-            >
-              View Event
-            </button>
-          </div>
+    <div className="flex flex-col min-h-screen"> {/* Set the container as flex column */}
+      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28 flex-grow"> {/* Set flex-grow to allow the container to grow */}
+        <div className="relative flex items-center w-full mb-4">
+          <input
+            type="text"
+            placeholder="Search by event name"
+            className="w-4/6 px-5 py-2 ml-40 border rounded-l-md focus:outline-none"
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-r-md ml-2"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
+          <button
+            className="bg-gray-400 text-white px-4 py-2 rounded-md ml-2"
+            onClick={handleReset}
+          >
+            Reset
+          </button>
         </div>
-      ))}
+
+        {(filteredEvents.length > 0 ? filteredEvents : eventData).map(event => (
+          <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg">
+            <img className="w-80 h-80" src={event.image} alt={event.name} />
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2 text-white">{event.name}</div>
+              {visibleDescription[event.id] && (
+                <p className="text-white text-base">{event.description}</p>
+              )}
+            </div>
+            <div className="px-6 pt-4 pb-2">
+              <button
+                className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
+                onClick={() => handleViewEvent(event)} // Pass the event to the handleViewEvent function
+              >
+                View Event
+              </button>
+            </div>
+          </div>
+        ))}
+        
+        {/* Render the EventPopup component if selectedEvent is not null */}
+        {selectedEvent && (
+          <EventPopup event={selectedEvent} onClose={handleClosePopup} />
+        )}
+      </div>
       
-      {/* Render the EventPopup component if selectedEvent is not null */}
-      {selectedEvent && (
-        <EventPopup event={selectedEvent} onClose={handleClosePopup} />
-      )}
+      {/* Include the Footer component at the bottom */}
+      <Footer />
     </div>
   );
 };
 
 export default Events;
+

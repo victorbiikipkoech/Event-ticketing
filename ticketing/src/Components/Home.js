@@ -5,7 +5,7 @@ import Footer from './Footer';
 const Home = () => {
   return (
     <div className="relative">
-      <h1 className='home'></h1>
+      {/* <h1 className='home'></h1> */}
 
       {/* Video background */}
       <div className='absolute top-0 left-0 z-0 w-full h-screen overflow-hidden'>
