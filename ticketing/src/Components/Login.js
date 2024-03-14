@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaGoogle, FaApple } from 'react-icons/fa';
+
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -11,9 +11,9 @@ const Login = () => {
 
   return (
     <div className="flex justify-center my-10 mt-[120px] w-auto">
-      <div className="flex justify-center flex-col items-center max-w-md p-6 border-2 border-[#e7e7e5] rounded-lg bg-white shadow-md w-full">
+      <div className="flex justify-center flex-col max-w-md p-6 border-2 border-[#e7e7e5] rounded-lg bg-white shadow-md w-full">
         <div className="text-center my-5">
-          <h1 className="font-semibold">{isLogin ? 'Login' : 'Sign Up'}</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center">{isLogin ? 'Login' : 'Sign Up'}</h1>
         </div>
         <form className="flex flex-col space-y-4" action="">
           {!isLogin && (
@@ -56,17 +56,19 @@ const Login = () => {
           </div>
         </form>
         <div>
-          <button className="bg-[#text-blue-500] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black hover:scale-105 duration-700">
+          {/* <button className="bg-[#text-blue-500] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black hover:scale-105 duration-700">
             {isLogin ? 'Login' : 'Sign Up'}
+
+          </button> */}
+          <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
+          >
+            {isLogin ? 'Login' : 'Sign Up'}
+
           </button>
         </div>
-        {/* <div>
-          <h3>or login with:</h3>
-          <div className="flex justify-between">
-            <FaGoogle className="cursor-pointer" />
-            <FaApple className="cursor-pointer" />
-          </div>
-        </div> */}
+       
         <div className="mt-4">
           <button
             className="text-[#ffa500] font-semibold hover:text-yellow-400"
