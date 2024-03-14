@@ -9,7 +9,7 @@ import Nia_Adebayo from '../images/Nia_Adebayo.jpg';
 import Rigo_Louie from '../images/Rigo_Louie.jpg';
 import Mia_Williams from '../images/Mia_Williams.jpg';
 
-const Testimonial = () => {commit 
+const Testimonial = () => {
   const settings = {
     dots: true,
     infinite: true,
