@@ -10,9 +10,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="h-56 bg-indigo-500 flex justify-center items-center rounded-t-xl">
       <div className="container mx-auto flex justify-between">
-        <div className="footer-item">
+        <div className="footer-item border border-white rounded-lg p-4">
           <h3 className="text-lg font-bold mb-4">Follow Us</h3>
           <div className="social-icons">
             <FaFacebook className="text-2xl mr-4 cursor-pointer" onClick={() => window.open('https://facebook.com')} />
@@ -20,8 +20,8 @@ const Footer = () => {
             <FaInstagram className="text-2xl cursor-pointer" onClick={() => window.open('https://instagram.com')} />
           </div>
         </div>
-        <div className="footer-item" onClick={() => handleNavigation('/contact')}>
-          <h3 className="text-lg font-bold mb-2 cursor-pointer text-blue-500">Contact Us</h3>
+        <div className="footer-item border border-white rounded-lg p-4" onClick={() => handleNavigation('/contact')}>
+          <h3 className="text-lg font-bold mb-2 cursor-pointer">Contact Us</h3>
           <div className="flex items-center mb-2">
             <FaPhone className="mr-2" />
             <span>+1234567890</span>
@@ -31,13 +31,13 @@ const Footer = () => {
             <span>+1234567890</span>
           </div>
         </div>
-        <div className="footer-item" onClick={() => handleNavigation('/')}>
-          <h3 className="text-lg font-bold mb-4 cursor-pointer text-blue-500">Home</h3>
+        <div className="footer-item border border-white rounded-lg p-4" onClick={() => handleNavigation('/')}>
+          <h3 className="text-lg font-bold mb-4 cursor-pointer">Home</h3>
           <p className="mb-2">123 Street, City</p>
           <p>Country</p>
         </div>
-        <div className="footer-item" onClick={() => handleNavigation('/about')}>
-          <h3 className="text-lg font-bold mb-4 cursor-pointer text-blue-500">About Us</h3>
+        <div className="footer-item border border-white rounded-lg p-4" onClick={() => handleNavigation('/about')}>
+          <h3 className="text-lg font-bold mb-4 cursor-pointer">About Us</h3>
           <p>Learn more about our mission and team.</p>
         </div>
       </div>

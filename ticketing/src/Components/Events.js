@@ -41,7 +41,7 @@ const Events = () => {
 
   return (
     <>
-      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28">
+      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28 mb-16"> {/* Increased margin-bottom for more space */}
         <div className="relative flex items-center w-full mb-4">
           <input
             type="text"
@@ -90,4 +90,3 @@ const Events = () => {
 };
 
 export default Events;
-
