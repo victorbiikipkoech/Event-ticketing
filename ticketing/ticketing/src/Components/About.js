@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import AboutUsImage from '../images/about.jpg'; // Header image
+// import AboutUsImage from '../images/about.jpg'; // Header image
 import SecondaryImage1 from '../images/secondary.jpg'; // First secondary image
 import SecondaryImage2 from '../images/Team.jpg'; // Second secondary image
 
@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div className="bg-white min-h-screen p-8">
       <div className="max-w-4xl mx-auto">
-        <img src={AboutUsImage} alt="About Us" className="w-full object-cover rounded-lg mb-8" />
+        {/* <img src={AboutUsImage} alt="About Us" className="w-full object-cover rounded-lg mb-8" /> */}
         
         <div className="flex flex-wrap -mx-4 items-start">
           <div className="w-full lg:w-1/2 px-4">
