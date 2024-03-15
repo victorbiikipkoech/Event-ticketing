@@ -71,7 +71,7 @@ const Login = () => {
        
         <div className="mt-4">
           <button
-            className="text-[#ffa500] font-semibold hover:text-yellow-400"
+            className="text-[#5e85ea] font-semibold hover:text-blue-400"
             onClick={handleToggle}
           >
             {isLogin ? 'Create an account' : 'Already have an account? Login'}
