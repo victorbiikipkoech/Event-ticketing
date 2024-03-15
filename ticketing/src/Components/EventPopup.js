@@ -46,7 +46,7 @@ const EventPopup = ({ event, onClose }) => {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
-      <div className="bg-white rounded-lg p-8 max-w-md">
+      <div className="bg-white rounded-lg p-8 max-w-md h-4/5 overflow-y-auto">
         <img src={event.image} alt={event.name} className="w-full h-auto rounded-md mb-4" />
         <h2 className="text-2xl font-bold mb-4">{event.name}</h2>
         <p className="mb-2"><strong>Venue:</strong> {event.venue}</p>
@@ -126,4 +126,4 @@ const EventPopup = ({ event, onClose }) => {
   );
 };
 
-export default EventPopup;
+export default EventPopup;
