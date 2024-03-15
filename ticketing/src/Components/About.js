@@ -43,6 +43,7 @@ const About = () => {
             <FaLinkedin size="2em" />
           </a>
         </div>
+
       </div>
     </div>
 
