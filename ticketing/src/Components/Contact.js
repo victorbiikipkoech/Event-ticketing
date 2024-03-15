@@ -39,7 +39,7 @@ function Contact() {
                     {submit === 'error' && (
                         <div className='text-red-600 mb-4'>Please confirm your message.</div>
                     )}
-                    <h1 className='text-3xl text-center font-bold mb-4 black'>CONTACT US</h1>
+                    <h1 className='text-3xl text-center font-bold mb-4 black'>Contact Us</h1>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="full_name">
                             Full Name

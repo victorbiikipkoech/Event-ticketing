@@ -6,7 +6,7 @@ import SecondaryImage2 from '../images/Team.jpg'; // Second secondary image
 
 const About = () => {
   return (
-    <div className="bg-white min-h-screen p-8">
+    <div className="bg-white min-h-screen p-8 mt-10">
       <div className="max-w-4xl mx-auto">
         <img src={AboutUsImage} alt="About Us" className="w-full object-cover rounded-lg mb-8" />
         
