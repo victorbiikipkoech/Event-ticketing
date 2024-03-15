@@ -27,7 +27,10 @@ function Contact() {
     
     return (
         <>
-            <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
+            <div 
+             className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border"
+             style={{ marginBottom: '4rem' }} // Add margin-bottom for space between contact form and footer
+            >
                 <form onSubmit={handleSubmit}>
                     {submit === 'success' && (
                         <div className='text-green-600 mb-4'>Thanks, your message has been received.</div>
@@ -90,7 +93,7 @@ function Contact() {
                     </button>
                 </form>
             </div>
-            <Footer className="absolute bottom-0 left-0 w-full" /> {/* Position the Footer at the bottom */}
+            <Footer /> {/* Footer component */}
         </>
     );
 }

@@ -48,7 +48,7 @@ const Testimonial = () => {
 
   return (
     <div className='w-full h-full flex flex-col justify-between'>
-      <div className="mt-20">
+      <div className="mt-20 mb-20"> {/* Add margin-bottom for space */}
         <Slider {...settings}>
           {data.map((d) => (
             <div key={d.name} className="bg-white h-[450px] text-black rounded-xl">
@@ -72,3 +72,4 @@ const Testimonial = () => {
 }
 
 export default Testimonial;
+
