@@ -24,45 +24,45 @@ const Testimonial = () => {
 
   const data = [
     {
-      name: James Kin,
+      name: 'James Kin',
       img: John_Morgan,
-      review: I recently used EventTicketing to book tickets for a concert, and I was blown away by the seamless experience. From browsing events to purchasing tickets, everything was smooth and hassle-free. Highly recommend.,
+      review: 'I recently used EventTicketing to book tickets for a concert, and I was blown away by the seamless experience. From browsing events to purchasing tickets, everything was smooth and hassle-free. Highly recommend.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
       twitter: 'https://twitter.com/'
     },
     {
-      name: Ellie Mike,
+      name: 'Ellie Mike',
       img: Ellie_Anderson,
-      review: EventTicketing made it incredibly easy for me to discover new events in my area. I found tickets for a comedy show last minute, and the whole process was so convenient. Will definitely use again!.,
+      review: 'EventTicketing made it incredibly easy for me to discover new events in my area. I found tickets for a comedy show last minute, and the whole process was so convenient. Will definitely use again!.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
       twitter: 'https://twitter.com/'
     },
     {
-      name: Maurine Wam,
+      name: 'Maurine Wam',
       img: Nia_Adebayo,
-      review: I've been using EventTicketing for all my event needs, and it never disappoints. Whether it's concerts, sports games, or theater shows, I always find great deals and have a blast. Thanks, EventTicketing.,
+      review: 'Ive been using EventTicketing for all my event needs, and it never disappoints. Whether its concerts, sports games, or theater shows, I always find great deals and have a blast. Thanks, EventTicketing.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
       twitter: 'https://twitter.com/'
     },
     {
-      name: Rigo luis,
+      name: 'Rigo luis',
       img: Rigo_Louie,
-      review: As an event organizer, I rely on EventTicketing to sell tickets for my events. The platform's user-friendly interface and robust features make ticket management a breeze. Plus, their customer support is top-notch!.,
+      review: 'As an event organizer, I rely on EventTicketing to sell tickets for my events. The platforms user-friendly interface and robust features make ticket management a breeze. Plus, their customer support is top-notch!.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
       twitter: 'https://twitter.com/'
     },
     {
-      name: Diko Milliams,
+      name: 'Diko Milliams',
       img: Mia_Williams,
-      review: EventTicketing helped me plan the perfect date night with my partner. We found tickets to a romantic dinner cruise, and it was a magical experience. Thanks to EventTicketing for helping us create lasting memories!.,
+      review: 'EventTicketing helped me plan the perfect date night with my partner. We found tickets to a romantic dinner cruise, and it was a magical experience. Thanks to EventTicketing for helping us create lasting memories!.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
