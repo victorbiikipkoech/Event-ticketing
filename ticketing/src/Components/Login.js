@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 function Login() {
-  const [user_name, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
 
@@ -15,12 +15,12 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/auth/login',{user_name,password})
+    axios.post('/auth/login',{username,password})
     .then(res => {
       console.log(res)
       alert('logged in succesfully')
 
-      navigate('/events')
+      navigate('/userdashboard')
 
          // store the access jwt token in local storage
          localStorage.setItem('access_token', res.data.Token.access)
@@ -29,7 +29,7 @@ function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
+    <div className="max-w-md mx-auto mt-28  bg-white rounded-lg shadow-md p-4 border">
       <h2 className="text-2xl font-bold mb-4 text-center">User Login</h2>
       <form onSubmit={handleSubmit} className="p-4 mt-2">
        
@@ -38,7 +38,7 @@ function Login() {
           <input
             type="text"
             className="form-input border rounded-md w-full py-2 px-3"
-            value={user_name}
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
