@@ -1,11 +1,12 @@
+
 import React, { useState } from 'react';
 import logoImage from '../images/logo.png';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-
   const closeMobileMenu = () => setClick(false);
+
 
   return (
     <div onClick={closeMobileMenu}>
@@ -44,6 +45,7 @@ const Navbar = () => {
 
               <div className='ml-12'>
 
+
               <Link to="/companylogin" className="text-blue-800 ml-20 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
                 Create Event
               </Link>
@@ -53,7 +55,6 @@ const Navbar = () => {
               </a>
 
               </div>
-
 
             </div>
             <div className="flex items-center" style={{ marginLeft: '3cm' }}>

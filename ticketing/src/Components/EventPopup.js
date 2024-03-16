@@ -108,7 +108,7 @@ const EventPopup = ({ event, onClose }) => {
             <p>Event Name: {eventName}</p>
             <p>Ticket Type: {ticketType}</p>
             <p>Number of Tickets: {numTickets}</p>
-            <p>Total Amount: ksh.{totalAmount}</p>
+            <p>Total Amount: ${totalAmount}</p>
           </div>
         </div>
         {/* End Ticket Payment Form */}
