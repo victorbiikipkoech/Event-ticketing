@@ -10,6 +10,7 @@ import Login from './Components/Login';
 import CompanyLogin from './Components/CompanyLogin';
 import CompanySignup from './Components/CompanySignup';
 import CompanyEvents from './Components/CompanyEvents';
+import Signup from './Components/Signup';
 
 
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/companylogin" element={<CompanyLogin />} />
         <Route path="/companysignup" element={<CompanySignup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/companyevents" element={<CompanyEvents/>} />
         
       </Routes>
