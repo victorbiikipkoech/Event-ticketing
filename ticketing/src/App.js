@@ -10,6 +10,7 @@ import Login from './Components/Login';
 import CompanyLogin from './Components/CompanyLogin';
 import CompanySignup from './Components/CompanySignup';
 import CompanyEvents from './Components/CompanyEvents';
+import NewPage from './Components/NewPage';
 
 
 
@@ -27,7 +28,7 @@ const App = () => {
         <Route path="/companysignup" element={<CompanySignup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/companyevents" element={<CompanyEvents/>} />
-        
+        <Route path='/page' element = {<NewPage/>}/>
       </Routes>
     </Router>
   );

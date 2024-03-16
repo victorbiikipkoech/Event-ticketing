@@ -94,9 +94,12 @@ const Testimonial = () => {
             </div>
           ))}
         </Slider>
+        
+        
       </div>
       <Footer />
     </div>
+    
   );
 }
 
