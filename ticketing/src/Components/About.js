@@ -1,8 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
-<<<<<<< HEAD
 import AboutUsImage from '../images/about.jpg'; // Header image
-import SecondaryImage1 from '../images/secondary.jpg'; // First secondary image
+import AboutVideo from '../images/secondary.mp4'; // Video
 import SecondaryImage2 from '../images/Team.jpg'; // Second secondary image
 
 const About = () => {
@@ -15,20 +14,23 @@ const About = () => {
           <div className="w-full lg:w-1/2 px-4">
             <h2 className="text-3xl font-bold mb-6">About Us</h2>
             <p className="mb-4">
-            Eventix revolutionizes event ticketing with a user-centric platform for easy access to memorable live experiences. We bridge event enthusiasts and organizers, celebrating community and unforgettable moments in just a few clicks.
+              Eventix revolutionizes event ticketing with a user-centric platform for easy access to memorable live experiences. We bridge event enthusiasts and organizers, celebrating community and unforgettable moments in just a few clicks.
             </p>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="mb-4">
-            our mission is to provide a seamless and enjoyable experience for event-goers to find, book, and attend their favorite events, while also empowering event organizers to reach their audience effectively.
+              our mission is to provide a seamless and enjoyable experience for event-goers to find, book, and attend their favorite events, while also empowering event organizers to reach their audience effectively.
             </p>
             <img src={SecondaryImage2} alt="Secondary 2" className="w-full object-cover rounded-lg mb-4" />
           </div>
 
-          <div className="w-full lg:w-1/2 px-4">
-            <img src={SecondaryImage1} alt="Secondary 1" className="h-2/3 object-cover rounded-lg mb-4" />
-            <h3 className="text-2xl font-bold mb-4">Meet our Team</h3>
+          <div className="w-full h-96 lg:w-1/2 px-4"> {/* Reduced height here (h-64) */}
+            <video autoPlay loop muted className="h-full w-full object-cover rounded-lg mb-4">
+              <source src={AboutVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <h3 className="text-2xl font-bold mb-4 mt-20">Meet our Team</h3>
             <p>
-            Event Ticketing team is dedicated to delivering exceptional service and experiences to our users. From our founders to our technical experts and marketing professionals, meet the passionate individuals behind our platform.
+              Event Ticketing team is dedicated to delivering exceptional service and experiences to our users. From our founders to our technical experts and marketing professionals, meet the passionate individuals behind our platform.
             </p>
           </div>
         </div>
@@ -45,57 +47,8 @@ const About = () => {
           </a>
         </div>
       </div>
-=======
-import AboutImage from '../images/about.jpg'
-
-
-
-const About = () => {
-  return (
-    <div className="bg-gradient-to-b from-gray-200 to-gray-300 min-h-screen flex flex-col items-center justify-center p-8">
-      <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-8">
-        <div>
-        <img src={AboutImage} alt="About" className="mx-auto mb-8 rounded-lg shadow-lg" />
-        </div>
-
-        <p className="text-lg text-center mb-6">Welcome to <span className="text-indigo-600 font-semibold">Event Ticketing</span>, your go-to destination for discovering and attending exciting events!</p>
-        <div className="mb-8">
-          <h3 className="text-2xl font-bold mb-2 text-center">Our Mission</h3> 
-          <p className="text-center">At <span className="text-indigo-600 font-semibold">Event Ticketing</span>, our mission is to provide a seamless and enjoyable experience for event-goers to find, book, and attend their favorite events, while also empowering event organizers to reach their audience effectively.</p> {/* 2. Center the text */}
-        </div>
-        <div className="mb-8">
-          <h3 className="text-2xl font-bold mb-2 text-center">Meet Our Team</h3> 
-          <p className="text-center">Our team at <span className="text-indigo-600 font-semibold">Event Ticketing</span> is dedicated to delivering exceptional service and experiences to our users. From our founders to our technical experts and marketing professionals, meet the passionate individuals behind our platform.</p> {/* 2. Center the text */}
-        </div>
-        <div className="mb-8">
-          <h3 className="text-2xl font-bold mb-2 text-center">Our Deliverables</h3> 
-          <ul className="list-disc pl-6 text-center">
-            <li>Wide range of events to choose from</li>
-            <li>Secure and convenient ticket purchasing</li>
-            <li>Personalized event recommendations</li>
-            <li>Easy event organization and management</li>
-            <li>Dedicated customer support</li>
-          </ul>
-        </div>
-       <div>
-          <h3 className="text-2xl font-bold mb-2 text-center">Get in Touch</h3> 
-          <p className="text-center mb-4">Have questions or feedback? We'd love to hear from you! Reach out to us at <span className="text-indigo-600 font-semibold">contact@eventTicketing.com</span> or <span className="text-indigo-600 font-semibold">123-456-7890</span>, or connect with us on social media:</p> {/* 2. Center the text */}
-          <div className="flex justify-center space-x-4 mt-4">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800"><FaFacebook /></a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800"><FaInstagram /></a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800"><FaLinkedin /></a>
-          </div>
-        </div>
-
-      </div>
-     
->>>>>>> main
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default About;
-=======
-export default About;
->>>>>>> main
