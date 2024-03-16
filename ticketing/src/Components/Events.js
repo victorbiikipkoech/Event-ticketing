@@ -1,17 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Footer from './Footer';
-import eventData from './eventData';
 import EventPopup from './EventPopup'; // Import the popup component
+import axios from 'axios';
 
 const Events = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [visibleDescription, setVisibleDescription] = useState({});
   const [selectedEvent, setSelectedEvent] = useState(null); // State to store the selected event
+  const [event, setEvents] = useState([]);
+
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // Fetch user's company data
+        const response = await axios.get('/events');
+        setEvents(response.data);
+        console.log(response.data);
+        
+        } catch(error) {
+        console.log(error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleSearch = () => {
-    const filtered = eventData.filter(event =>
-      event.name.toLowerCase().includes(searchQuery.toLowerCase())
+    const filtered = event.filter(event =>
+      event.event_name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredEvents(filtered);
   };
@@ -60,7 +78,6 @@ const Events = () => {
 
         {(filteredEvents.length > 0 ? filteredEvents : eventData).map(event => (
           <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg">
-            <div className=" bg-blue-300 rounded overflow-hidden shadow-lg"> {/* Added bg-black class */}
               <img className="w-80 h-80 " src={event.image} alt={event.name} />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2 text-white text-center">{event.name}</div> {/* Changed text color to white */}
@@ -77,15 +94,25 @@ const Events = () => {
                 </button>
               </div>
             </div>
+            </div>
+            </div>
+          <div className="px-6 pt-4 pb-2 text-center">
+            <button
+              className="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
+              onClick={() => handleViewEvent(event)}
+            >
+              View Event
+            </button>
           </div>
+      
+        
         ))}
         
         {/* Render the EventPopup component if selectedEvent is not null */}
         {selectedEvent && (
           <EventPopup event={selectedEvent} onClose={handleClosePopup} />
         )}
-      </div>
-
+    
       <Footer />
     </>
   );
