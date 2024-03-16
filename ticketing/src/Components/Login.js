@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 function Login() {
-  const [user_name, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
 
@@ -15,7 +15,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/auth/login',{user_name,password})
+    axios.post('/auth/login',{username,password})
     .then(res => {
       console.log(res)
       alert('logged in succesfully')
@@ -38,7 +38,7 @@ function Login() {
           <input
             type="text"
             className="form-input border rounded-md w-full py-2 px-3"
-            value={user_name}
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
