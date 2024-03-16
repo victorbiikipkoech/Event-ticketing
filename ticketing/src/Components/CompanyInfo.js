@@ -1,38 +1,49 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-function CompanyEvents() {
+function CompanyInfo() {
+  const [userData, setUserData] = useState({});
   const [events, setEvents] = useState([]);
 
-  useEffect(()=> {
-    const fetchEvents= async()=>{
-      try{
-        const accessToken=localStorage.getItem('access_token');
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const accessToken = localStorage.getItem('access_token');
         const config = {
-          headers:{
+          headers: {
             Authorization: `Bearer ${accessToken}`,
-
           },
         };
-        const response = await axios.get('/companyevents',config);
-        setEvents(response.data);
-        console.log(response.data)
-      }
-      catch(error){
+        // Fetch user's company data
+        const response = await axios.get('/company', config);
+        setUserData(response.data);
+        console.log(response.data);
+        
+        // Fetch company events
+        const eventsResponse = await axios.get('/companyevents', config);
+        setEvents(eventsResponse.data);
+        console.log(eventsResponse.data);
+      } catch(error) {
         console.log(error);
       }
     };
 
-    fetchEvents();
-
-  },[]);
-
- 
+    fetchUserData();
+  }, []);
 
   return (
-    
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Company Events</h1>
+      <h1>
+        Hello: {userData.company_name ? userData.company_name : 'User'}
+      </h1>
+      <div>
+            <p className="text-gray-600">
+                <a href="/createevent" className="text-blue-500 hover:underline">
+                  Create An Event
+              </a>
+            </p>
+          </div>
+      <h2 className="text-2xl font-bold mb-4">Company Events</h2>
       <ul>
         {events.map((event, index) => (
           <li key={index} className="mb-8">
@@ -73,10 +84,4 @@ function CompanyEvents() {
   );
 }
 
-
-export default CompanyEvents
-
-
-
-
- 
+export default CompanyInfo;

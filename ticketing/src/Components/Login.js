@@ -20,7 +20,7 @@ function Login() {
       console.log(res)
       alert('logged in succesfully')
 
-      navigate('/events')
+      navigate('/userdashboard')
 
          // store the access jwt token in local storage
          localStorage.setItem('access_token', res.data.Token.access)
@@ -29,7 +29,7 @@ function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
+    <div className="max-w-md mx-auto mt-28  bg-white rounded-lg shadow-md p-4 border">
       <h2 className="text-2xl font-bold mb-4 text-center">User Login</h2>
       <form onSubmit={handleSubmit} className="p-4 mt-2">
        
