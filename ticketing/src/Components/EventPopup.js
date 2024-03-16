@@ -35,7 +35,7 @@ const EventPopup = ({ event, onClose }) => {
     setTotalAmount(numTickets * ticketPrice);
   };
 
-  // Define calendar event
+  
   const calendarEvent = {
     title: event.name,
     description: event.description,
@@ -55,7 +55,7 @@ const EventPopup = ({ event, onClose }) => {
         <p className="mb-2"><strong>Time:</strong> {event.time}</p>
         <p><strong>Number of People:</strong> {event.capacity}</p>
         
-        {/* Ticket Payment Form */}
+        
         <div className="mt-6">
           <h3 className="text-xl font-semibold mb-2">Ticket Payment</h3>
           <form className="space-y-4">
