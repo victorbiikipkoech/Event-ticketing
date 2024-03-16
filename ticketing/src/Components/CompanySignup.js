@@ -25,7 +25,7 @@ function SignUpForm() {
   return (
     
     <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
-      <h2 className="text-2xl font-bold mb-4 text-center">Sign Up</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">Company SignUp</h2>
       <form onSubmit={handleSubmit} className="p-4 mt-2">
         <label className="block mb-2">
           Company Name:

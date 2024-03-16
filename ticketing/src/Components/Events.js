@@ -41,7 +41,7 @@ const Events = () => {
 
   return (
     <>
-      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28">
+      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28 mb-16"> {/* Increased margin-bottom for more space */}
         <div className="relative flex items-center w-full mb-4">
           <input
             type="text"
@@ -60,20 +60,22 @@ const Events = () => {
 
         {(filteredEvents.length > 0 ? filteredEvents : eventData).map(event => (
           <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg">
-            <img className="w-80 h-80" src={event.image} alt={event.name} />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2 text-white">{event.name}</div>
-              {visibleDescription[event.id] && (
-                <p className="text-white text-base">{event.description}</p>
-              )}
-            </div>
-            <div className="px-6 pt-4 pb-2">
-              <button
-                className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
-                onClick={() => handleViewEvent(event)} // Pass the event to the handleViewEvent function
-              >
-                View Event
-              </button>
+            <div className="bg-blue-300 rounded overflow-hidden shadow-lg"> {/* Added bg-black class */}
+              <img className="w-80 h-80 " src={event.image} alt={event.name} />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2 text-white text-center">{event.name}</div> {/* Changed text color to white */}
+                {visibleDescription[event.id] && (
+                  <p className="text-white text-base">{event.description}</p>
+                )}
+              </div>
+              <div className="px-6 pt-4 pb-2 text-center">
+                <button
+                  className="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
+                  onClick={() => handleViewEvent(event)} // Pass the event to the handleViewEvent function
+                >
+                  View Event
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -90,4 +92,3 @@ const Events = () => {
 };
 
 export default Events;
-

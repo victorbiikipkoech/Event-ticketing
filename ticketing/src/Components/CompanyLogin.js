@@ -1,34 +1,47 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 function LoginForm() {
-  const [companyEmail, setCompanyEmail] = useState('');
+  const [company_name, setCompanyname] = useState('');
   const [password, setPassword] = useState('');
+
+
+  const navigate = useNavigate();
+
   
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can send the form data to your backend here
-    console.log({
-      companyEmail,
-      password,
+    axios.post('/auth/companylogin',{company_name,password})
+    .then(res => {
+      console.log(res)
+      alert('logged in succesfully')
+
+      navigate('/companyevents')
+
+         // store the access jwt token in local storage
+         localStorage.setItem('access_token', res.data.Token.access)
+   
     });
   };
 
+  
+
   return (
     <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
-      <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">Company Login</h2>
       <form onSubmit={handleSubmit} className="p-4 mt-2">
        
         <label className="block mb-2">
-          Company Email:
+          Company Name:
           <input
-            type="email"
+            type="text"
             className="form-input border rounded-md w-full py-2 px-3"
-            value={companyEmail}
-            onChange={(e) => setCompanyEmail(e.target.value)}
+            value={company_name}
+            onChange={(e) => setCompanyname(e.target.value)}
           />
         </label>
         <label className="block mb-2">

@@ -27,7 +27,10 @@ function Contact() {
     
     return (
         <>
-            <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
+            <div 
+             className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border"
+             style={{ marginBottom: '4rem' }} // Add margin-bottom for space between contact form and footer
+            >
                 <form onSubmit={handleSubmit}>
                     {submit === 'success' && (
                         <div className='text-green-600 mb-4'>Thanks, your message has been received.</div>
@@ -36,7 +39,7 @@ function Contact() {
                     {submit === 'error' && (
                         <div className='text-red-600 mb-4'>Please confirm your message.</div>
                     )}
-                    <h1 className='text-3xl text-center font-bold mb-4 black'>CONTACT US</h1>
+                    <h1 className='text-3xl text-center font-bold mb-4 black'>Contact Us</h1>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="full_name">
                             Full Name
@@ -90,7 +93,7 @@ function Contact() {
                     </button>
                 </form>
             </div>
-            <Footer className="absolute bottom-0 left-0 w-full" /> {/* Position the Footer at the bottom */}
+            <Footer /> {/* Footer component */}
         </>
     );
 }

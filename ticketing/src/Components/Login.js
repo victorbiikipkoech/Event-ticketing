@@ -1,85 +1,71 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
-const Login = () => {
-  const [isLogin, setIsLogin] = useState(true);
+
+function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+
+  const navigate = useNavigate();
+
   
 
-  const handleToggle = () => {
-    setIsLogin(!isLogin);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('/auth/login',{username,password})
+    .then(res => {
+      console.log(res)
+      alert('logged in succesfully')
+
+      navigate('/events')
+
+         // store the access jwt token in local storage
+         localStorage.setItem('access_token', res.data.Token.access)
+   
+    });
   };
 
   return (
-    <div className="flex justify-center my-10 mt-[120px] w-auto">
-      <div className="flex justify-center flex-col max-w-md p-6 border-2 border-[#e7e7e5] rounded-lg bg-white shadow-md w-full">
-        <div className="text-center my-5">
-          <h1 className="text-2xl font-bold mb-4 text-center">{isLogin ? 'Login' : 'Sign Up'}</h1>
-        </div>
-        <form className="flex flex-col space-y-4" action="">
-          {!isLogin && (
-            <div className="flex flex-col">
-              <label className="mb-1">Username</label>
-              <input
-                className="border rounded px-2 py-1"
-                type="text"
-                placeholder="Enter your username"
-              />
-            </div>
-          )}
-          {!isLogin && (
-            <div className="flex flex-col">
-              <label className="mb-1">Email</label>
-              <input
-                className="border rounded px-2 py-1"
-                type="text"
-                placeholder="Enter your email"
-              />
-            </div>
-          )}
-          <div className="flex flex-col">
-            <label className="mb-1">Username</label>
-            <input
-              className="border rounded px-2 py-1"
-              type="email"
-              placeholder="Enter your username"
-              required
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="mb-1">Password</label>
-            <input
-              className="border rounded px-2 py-1"
-              type="password"
-              placeholder="Enter a password"
-              required
-            />
-          </div>
-        </form>
-        <div>
-          {/* <button className="bg-[#text-blue-500] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black hover:scale-105 duration-700">
-            {isLogin ? 'Login' : 'Sign Up'}
-
-          </button> */}
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
-          >
-            {isLogin ? 'Login' : 'Sign Up'}
-
-          </button>
-        </div>
+    <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
+      <h2 className="text-2xl font-bold mb-4 text-center">User Login</h2>
+      <form onSubmit={handleSubmit} className="p-4 mt-2">
        
+        <label className="block mb-2">
+          User Name:
+          <input
+            type="text"
+            className="form-input border rounded-md w-full py-2 px-3"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </label>
+        <label className="block mb-2">
+          Password:
+          <input
+            type="password"
+            className="form-input border rounded-md w-full py-2 px-3"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </label>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
+        >
+          Login
+        </button>
         <div className="mt-4">
-          <button
-            className="text-[#ffa500] font-semibold hover:text-yellow-400"
-            onClick={handleToggle}
-          >
-            {isLogin ? 'Create an account' : 'Already have an account? Login'}
-          </button>
+          <p>Don't have an account? <Link to="/signup" className="text-blue-500">Register</Link></p>
+
+
         </div>
-      </div>
+
+      </form>
     </div>
   );
-};
+}
 
 export default Login;
