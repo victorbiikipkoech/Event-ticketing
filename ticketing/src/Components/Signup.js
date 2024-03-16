@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 
 
-function SignUpForm() {
-  const [companyName, setCompanyName] = useState('');
-  const [companyEmail, setCompanyEmail] = useState('');
-  const [companyContact, setCompanyContact] = useState('');
+function Signup() {
+  const [UserName, setUserName] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Contact, setContact] = useState('');
   const [hashedPassword, setHashedPassword] = useState('');
  
 
@@ -13,9 +13,9 @@ function SignUpForm() {
     e.preventDefault();
    
     console.log({
-      companyName,
-      companyEmail,
-      companyContact,
+      UserName,
+      Email,
+      Contact,
       hashedPassword,
     });
 
@@ -25,33 +25,33 @@ function SignUpForm() {
   return (
     
     <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
-      <h2 className="text-2xl font-bold mb-4 text-center">Company SignUp</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">User Sign Up</h2>
       <form onSubmit={handleSubmit} className="p-4 mt-2">
         <label className="block mb-2">
-          Company Name:
+          User Name:
           <input
             type="text"
             className="form input border rounded-md w-full py-2 px-3"
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
+            value={UserName}
+            onChange={(e) => setUserName(e.target.value)}
           />
         </label>
         <label className="block mb-2">
-          Company Email:
+          Email:
           <input
             type="email"
             className="form input border rounded-md w-full py-2 px-3"
-            value={companyEmail}
-            onChange={(e) => setCompanyEmail(e.target.value)}
+            value={Email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </label>
         <label className="block mb-2">
-          Company Contact:
+          Contact:
           <input
             type="text"
             className="form-input border rounded-md w-full py-2 px-3"
-            value={companyContact}
-            onChange={(e) => setCompanyContact(e.target.value)}
+            value={Contact}
+            onChange={(e) => setContact(e.target.value)}
           />
         </label>
         <label className="block mb-2">
@@ -74,4 +74,4 @@ function SignUpForm() {
   );
 }
 
-export default SignUpForm;
+export default Signup;
