@@ -77,7 +77,7 @@ const Testimonial = () => {
           {data.map((d) => (
             <div key={d.name} className="bg-blue-100 rounded-lg shadow-lg p-4 flex flex-col justify-between">
               <div className="flex flex-col items-center justify-center mb-4">
-                <div className="bg-blue-300 rounded-full w-32 h-32 flex items-center justify-center border-2 border-blue-400">
+                <div className="bg-blue-400 rounded-full w-32 h-32 flex items-center justify-center border-2 border-blue-400">
                   <img src={d.img} alt="" className="w-24 h-24 rounded-full" />
                 </div>
                 <div className="flex flex-col items-center justify-center mt-4">
