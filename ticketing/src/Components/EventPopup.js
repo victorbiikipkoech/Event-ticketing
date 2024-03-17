@@ -47,13 +47,13 @@ const EventPopup = ({ event, onClose }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
       <div className="bg-white rounded-lg p-8 max-w-md h-4/5 overflow-y-auto">
-        <img src={event.image} alt={event.name} className="w-full h-auto rounded-md mb-4" />
-        <h2 className="text-2xl font-bold mb-4">{event.name}</h2>
-        <p className="mb-2"><strong>Venue:</strong> {event.venue}</p>
-        <p className="mb-2"><strong>Start Date:</strong> {event.startDate}</p>
-        <p className="mb-2"><strong>End Date:</strong> {event.endDate}</p>
-        <p className="mb-2"><strong>Time:</strong> {event.time}</p>
-        <p><strong>Number of People:</strong> {event.capacity}</p>
+        <img src={event.event_image} alt={event.event_name} className="w-full h-auto rounded-md mb-4" />
+        <h2 className="text-2xl font-bold mb-4">{event.event_name}</h2>
+        <p className="mb-2"><strong>VENUE:</strong> {event.venue_name.toUpperCase()}</p>
+        <p className="mb-2"><strong>START DATE:</strong> {event.start_date}</p>
+        <p className="mb-2"><strong>END DATE:</strong> {event.end_date}</p>
+        <p className="mb-2"><strong>TIME:</strong> {event.event_time}</p>
+        {/* <p><strong>Number of People:</strong> {event.capacity}</p> */}
         
         
         <div className="mt-6">
