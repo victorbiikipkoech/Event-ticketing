@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-
+import CompanyNavbar from './CompanyNavbar';
 function CompanyInfo() {
   const [userData, setUserData] = useState({});
   const [events, setEvents] = useState([]);
@@ -33,9 +33,15 @@ function CompanyInfo() {
 
   return (
     <div className="container mx-auto p-4">
+      <div>
+      <CompanyNavbar/>
+      </div>
       <h1>
+        
+
         Hello: {userData.company_name ? userData.company_name : 'User'}
       </h1>
+      
       <div>
             <p className="text-gray-600">
                 <a href="/createevent" className="text-blue-500 hover:underline">

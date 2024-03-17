@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Navbar from './Components/Navbar';
+import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import About from './Components/About';
 import Events from './Components/Events';
@@ -20,7 +20,7 @@ import UserDashboard from './Components/UserDashboard';
 const App = () => {
   return (
     <Router>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -34,9 +34,8 @@ const App = () => {
         <Route path="/companyinfo" element={<CompanyInfo/>} />
         <Route path= "/createevent" element= {<CompanyEvent/>} />
         <Route path = "/userdashboard" element= {<UserDashboard/>}/>
-        
-
-      </Routes>
+        <Route path="/" exact element={<Home />} />
+        </Routes>
     </Router>
   );
 };
