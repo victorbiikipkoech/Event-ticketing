@@ -94,7 +94,7 @@ const Events = () => {
                 </button>
               </div>
             </div>
-            </div>
+            ))}
             </div>
           <div className="px-6 pt-4 pb-2 text-center">
             <button
@@ -105,8 +105,6 @@ const Events = () => {
             </button>
           </div>
       
-        
-        ))}
         
         {/* Render the EventPopup component if selectedEvent is not null */}
         {selectedEvent && (
