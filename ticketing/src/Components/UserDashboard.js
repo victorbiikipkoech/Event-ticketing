@@ -22,18 +22,28 @@ function UserDashboard() {
         catch(error) {
             console.log(error);
           }
-    }
+    };
 
+    fetchData();
+  }, []);
 
-
-   },[])
-        
 
   return (
-    <div>
-        <h1>Purchase History</h1>
-    </div>
+    <div className="container mx-auto p-4">
+            <h1 className="font-bold text-2xl mb-4">Purchase History</h1>
+            <div>
+                {orderHistory.map((order, index) => (
+                    <div key={index} className="bg-white shadow-md rounded-md p-4 my-4">
+                        <p><strong>Order ID:</strong> {order.id}</p>
+                        <p className="mt-2"><strong>Order Date:</strong> {order.order_date}</p>
+                        <p className="mt-2"><strong>Total Price:</strong> {order.total_price}</p>
+                        <p className="mt-2"><strong>Quantity:</strong> {order.quantity}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
   )
 }
 
 export default UserDashboard
+

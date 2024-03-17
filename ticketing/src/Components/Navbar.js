@@ -46,11 +46,11 @@ const Navbar = () => {
               <div className='ml-12'>
 
 
-              <Link to="/companylogin" className="text-blue-800 ml-20 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
+              <Link to="/companylogin" className="text-gray-800 ml-20 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
                 Create Event
               </Link>
 
-              <a href="/login" className=" ml-6 text-blue-800 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
+              <a href="/login" className=" ml-6 text-gray-800 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
                 Login
               </a>
 
