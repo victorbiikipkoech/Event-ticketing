@@ -56,6 +56,9 @@ function CompanyInfo() {
                 </p>
                 <p>
                   <strong>End Date:</strong> {event.end_date}
+                </p> 
+                <p>
+                  <strong>Time:</strong> {event.event_time}
                 </p>
               </div>
               <div className="flex items-center mt-2">

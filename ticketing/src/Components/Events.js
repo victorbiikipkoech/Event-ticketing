@@ -1,17 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Footer from './Footer';
-import eventData from './eventData';
-import EventPopup from './EventPopup'; // Import the popup component
+import EventPopup from './EventPopup';
+import axios from 'axios';
+import evnImage from '../images/home.jpg';
+import Order from './Order';
 
 const Events = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [visibleDescription, setVisibleDescription] = useState({});
   const [selectedEvent, setSelectedEvent] = useState(null); // State to store the selected event
+  const [event, setEvents] = useState([]);
+
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // Fetch user's company data
+        const response = await axios.get('/events');
+        setEvents(response.data);
+        console.log(response.data);
+        
+        } catch(error) {
+        console.log(error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleSearch = () => {
-    const filtered = eventData.filter(event =>
-      event.name.toLowerCase().includes(searchQuery.toLowerCase())
+    const filtered = event.filter(event =>
+      event.event_name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredEvents(filtered);
   };
@@ -58,12 +78,11 @@ const Events = () => {
           </button>
         </div>
 
-        {(filteredEvents.length > 0 ? filteredEvents : eventData).map(event => (
-          <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg">
-            <div className=" bg-blue-300 rounded overflow-hidden shadow-lg"> {/* Added bg-black class */}
-              <img className="w-80 h-80 " src={event.image} alt={event.name} />
+        {(filteredEvents.length > 0 ? filteredEvents : event).map(event => (
+          <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white text-black">
+              <img className="w-80 h-80 " src={event.event_image || evnImage} alt={event.event_name} />
               <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2 text-white text-center">{event.name}</div> {/* Changed text color to white */}
+                <div className="font-bold text-xl mb-2  text-center">{event.event_name.toUpperCase()}</div> {/* Changed text color to white */}
                 {visibleDescription[event.id] && (
                   <p className="text-white text-base">{event.description}</p>
                 )}
@@ -71,21 +90,22 @@ const Events = () => {
               <div className="px-6 pt-4 pb-2 text-center">
                 <button
                   className="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
-                  onClick={() => handleViewEvent(event)} // Pass the event to the handleViewEvent function
+                  onClick={() => handleViewEvent(event)} 
                 >
                   View Event
                 </button>
               </div>
             </div>
-          </div>
-        ))}
+            ))}
+            </div>
+        
         
         {/* Render the EventPopup component if selectedEvent is not null */}
         {selectedEvent && (
           <EventPopup event={selectedEvent} onClose={handleClosePopup} />
         )}
-      </div>
-
+       
+    
       <Footer />
     </>
   );
