@@ -4,12 +4,14 @@ import axios from 'axios';
 function CompanyEvent() {
   const [start_date, setStartDate] = useState('');
   const [end_date, setEndDate] = useState('');
-  const [event_time, setEventTime] = useState('');
   const [event_name, setEventName] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
   const [event_type, setEventType] = useState('');
   const [venue_name, setVenueName] = useState('');
+  const [ticket_type, setTicketType] = useState('');
+  const [price, setPrice] = useState('');
+  const [quantity, setQuantity] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,10 +34,17 @@ function CompanyEvent() {
         start_date,
         location,
         end_date,
-        event_time,
         description,
         event_type,
         venue_name,
+      }, config);
+
+      // Create ticket purchase
+      await axios.post('/ticket-purchase', {
+        event_name,
+        ticket_type,
+        price,
+        quantity,
       }, config);
 
       alert('Event created successfully');
@@ -44,10 +53,13 @@ function CompanyEvent() {
       setEventName('');
       setStartDate('');
       setEndDate('');
-      setEventTime('');
       setDescription('');
       setEventType('');
       setVenueName('');
+      // Reset ticket purchase fields
+      setTicketType('');
+      setPrice('');
+      setQuantity('');
     } catch (error) {
       console.error('Error adding event:', error);
       alert('Failed to create event');
@@ -57,28 +69,8 @@ function CompanyEvent() {
   return (
     <div className="container mx-auto">
       <h1 className="text-2xl font-bold text-center mb-4 mr-96">New Event</h1>
-      <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-x-4">
-        <div className="mb-4">
-          <label className="block">Venue Name</label>
-          <input
-            type='text'
-            placeholder='Venue Name'
-            value={venue_name}
-            onChange={e => setVenueName(e.target.value)}
-            className="input"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block">Location</label>
-          <input
-            type='text'
-            placeholder='Event Location'
-            value={location}
-            onChange={e => setLocation(e.target.value)}
-            className="input"
-          />
-        </div>
-        <div className="mb-4">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mb-4 md:col-span-1">
           <label className="block">Event Name</label>
           <input
             type='text'
@@ -88,7 +80,17 @@ function CompanyEvent() {
             className="input"
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 md:col-span-1">
+          <label className="block">Venue Name</label>
+          <input
+            type='text'
+            placeholder='Venue Name'
+            value={venue_name}
+            onChange={e => setVenueName(e.target.value)}
+            className="input"
+          />
+        </div>
+        <div className="mb-4 md:col-span-1">
           <label className="block">Start Date</label>
           <input
             type='date'
@@ -98,7 +100,7 @@ function CompanyEvent() {
             className="input"
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 md:col-span-1">
           <label className="block">End Date</label>
           <input
             type='date'
@@ -108,17 +110,19 @@ function CompanyEvent() {
             className="input"
           />
         </div>
-        <div className="mb-4">
-          <label className="block">Event Time</label>
-          <input
-            type='time'
-            placeholder='Event Time'
-            value={event_time}
-            onChange={e => setEventTime(e.target.value)}
+        <div className="mb-4 md:col-span-1">
+          <label className="block">Event Type</label>
+          <select
+            value={event_type}
+            onChange={e => setEventType(e.target.value)}
             className="input"
-          />
+          >
+            <option>Select Event Type</option>
+            <option>Physical</option>
+            <option>Remote</option>
+          </select>
         </div>
-        <div className="mb-4">
+        <div className="mb-4 md:col-span-1">
           <label className="block">Event Description</label>
           <textarea
             placeholder='Description of the event'
@@ -128,21 +132,54 @@ function CompanyEvent() {
             className="input"
           />
         </div>
-        <div className="mb-4">
-          <label className="block">Event Type</label>
+        <div className="mb-4 md:col-span-1">
+          <label className="block">Location</label>
+          <input
+            type='text'
+            placeholder='Event Location'
+            value={location}
+            onChange={e => setLocation(e.target.value)}
+            className="input"
+          />
+        </div>
+        {/* Additional fields for ticket purchase */}
+        <div className="mb-4 md:col-span-1">
+          <label className="block">Ticket Type</label>
           <select
-            value={event_type}
-            onChange={e => setEventType(e.target.value)}
+            value={ticket_type}
+            onChange={e => setTicketType(e.target.value)}
             className="input"
           >
-            <option>Select Event Type</option>
-            <option>VVIP</option>
-            <option>VIP</option>
-            <option>REGULAR</option>
+            <option value="">Select Ticket Type</option>
+            <option value="VVIP">VVIP</option>
+            <option value="VIP">VIP</option>
+            <option value="Regular">Regular</option>
           </select>
         </div>
+        <div className="mb-4 md:col-span-1">
+          <label className="block">Quantity</label>
+          <input
+            type='number'
+            placeholder='Quantity'
+            value={quantity}
+            onChange={e => setQuantity(e.target.value)}
+            className="input"
+          />
+        </div>
+        <div className="mb-4 md:col-span-1">
+          <label className="block">Price</label>
+          <input
+            type='number'
+            placeholder='Price (500 - 10000)'
+            value={price}
+            min="500"
+            max="10000"
+            onChange={e => setPrice(e.target.value)}
+            className="input"
+          />
+        </div>
         <div className="col-span-2 flex justify-center">
-          <button type='submit' className="btn bg-blue-500 text-white px-4 py-2 rounded mr-96 hover:bg-blue-600">Create Event</button>
+          <button type='submit' className="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-96">Create Event</button>
         </div>
       </form>
     </div>
