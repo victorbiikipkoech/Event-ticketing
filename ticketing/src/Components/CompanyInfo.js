@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function CompanyInfo() {
@@ -18,12 +18,15 @@ function CompanyInfo() {
         const response = await axios.get('/company', config);
         setUserData(response.data);
         console.log(response.data);
-        
+
         // Fetch company events
         const eventsResponse = await axios.get('/companyevents', config);
-        setEvents(eventsResponse.data);
-        console.log(eventsResponse.data);
-      } catch(error) {
+
+        const sortedEvents = eventsResponse.data.sort((a, b) => {
+          return new Date(b.start_date) - new Date(a.start_date);
+        });
+        setEvents(sortedEvents);
+      } catch (error) {
         console.log(error);
       }
     };
@@ -31,18 +34,38 @@ function CompanyInfo() {
     fetchUserData();
   }, []);
 
+  const handleDelete = async (eventId) => {
+    try {
+      const accessToken = localStorage.getItem('access_token');
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+
+      const response = await axios.delete(`/delete_event/${eventId}`, config);
+      alert('Do you want to delete this event?')
+
+      // Update the events state to remove the deleted event
+      setEvents(events.filter(event => event.id !== eventId));
+    } catch (error) {
+      console.log('Error deleting event:', error);
+    }
+  };
+
   return (
     <div className="container mx-auto p-4">
-      <h1>
-        Hello: {userData.company_name ? userData.company_name : 'User'}
-      </h1>
+   <h1 className="text-2xl font-bold text-gray-800">
+  Welcome Back: {userData.company_name ? userData.company_name : 'User'}
+    </h1>
+
       <div>
-            <p className="text-gray-600">
-                <a href="/createevent" className="text-blue-500 hover:underline">
-                  Create An Event
-              </a>
-            </p>
-          </div>
+        <p className="text-gray-600">
+          <a href="/createevent" className="text-blue-500 hover:underline">
+            Create An Event
+          </a>
+        </p>
+      </div>
       <h2 className="text-2xl font-bold mb-4">Company Events</h2>
       <ul>
         {events.map((event, index) => (
@@ -56,7 +79,7 @@ function CompanyInfo() {
                 </p>
                 <p>
                   <strong>End Date:</strong> {event.end_date}
-                </p> 
+                </p>
                 <p>
                   <strong>Time:</strong> {event.event_time}
                 </p>
@@ -79,6 +102,12 @@ function CompanyInfo() {
                   ))}
                 </ul>
               </div>
+              <div className="mt-4">
+             <button className="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600" onClick={() => handleDelete(event.id)}>
+              Delete Event
+              </button>
+              </div>
+
             </div>
           </li>
         ))}
