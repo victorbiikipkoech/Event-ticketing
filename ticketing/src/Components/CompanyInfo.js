@@ -54,12 +54,12 @@ function CompanyInfo() {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto mt-14 mb-14 p-4">
    <h1 className="text-2xl font-bold text-gray-800">
   Welcome Back: {userData.company_name ? userData.company_name : 'User'}
     </h1>
 
-      <div>
+      <div mt-7 mb-7>
         <p className="text-gray-600">
           <a href="/createevent" className="text-blue-500 hover:underline">
             Create An Event
@@ -70,7 +70,7 @@ function CompanyInfo() {
       <ul>
         {events.map((event, index) => (
           <li key={index} className="mb-8">
-            <div className="bg-gray-200 rounded-lg p-4">
+            <div className="shadow-md  my-4 mb-7 bg-gray-200 rounded-lg p-4">
               <p className="text-xl font-semibold">{event.event_name.toUpperCase()}</p>
               <p className="text-gray-700">{event.description.toUpperCase()}</p>
               <div className="flex items-center mt-2">

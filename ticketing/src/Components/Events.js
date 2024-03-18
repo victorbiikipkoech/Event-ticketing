@@ -61,8 +61,8 @@ const Events = () => {
 
   return (
     <>
-      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28 mb-16"> {/* Increased margin-bottom for more space */}
-        <div className="relative flex items-center w-full mb-4">
+      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28 mb-28"> {/* Increased margin-bottom for more space */}
+        <div className="relative flex items-center w-full mb-14">
           <input
             type="text"
             placeholder="Search by event name"
