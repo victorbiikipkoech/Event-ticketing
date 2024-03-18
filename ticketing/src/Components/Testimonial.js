@@ -35,7 +35,7 @@ const Testimonial = () => {
     {
       name: 'Ellie Mike',
       img: Ellie_Anderson,
-      review: 'EventTicketing made it incredibly easy for me to discover new events in my area. I found tickets for a comedy show last minute, and the whole process was so convenient. Will definitely use again!.',
+      review: 'EventTicketing made it incredibly easy for me to discover new events in my area. I found tickets for a comedy show last minute, and the whole process was so convenient. Will definitely use again! and thank you.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
@@ -44,7 +44,7 @@ const Testimonial = () => {
     {
       name: 'Maurine Wam',
       img: Nia_Adebayo,
-      review: 'Ive been using EventTicketing for all my event needs, and it never disappoints. Whether its concerts, sports games, or theater shows, I always find great deals and have a blast. Thanks, EventTicketing.',
+      review: 'Ive been using EventTicketing for all my event needs, and it never disappoints. Whether its concerts, sports games, or theater shows, I always find great deals and have a blast. Thank you very much, EventTicketing.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
@@ -72,7 +72,7 @@ const Testimonial = () => {
 
   return (
     <div className='w-full h-full flex flex-col justify-between'>
-      <div className="mt-28 mb-10 mx-auto w-4/5">
+      <div className="mt-28 mb-28 mx-auto w-4/5">
         <Slider {...settings} className="testimonial-slider">
           {data.map((d) => (
             <div key={d.name} className="bg-blue-100 rounded-lg shadow-lg p-4 flex flex-col justify-between">
