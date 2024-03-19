@@ -15,7 +15,7 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/auth/companylogin',{company_name,password})
+    axios.post('https://event-ticketing-backend.onrender.com/auth/companylogin',{company_name,password})
     .then(res => {
       console.log(res)
       alert('logged in succesfully')
@@ -24,11 +24,12 @@ function LoginForm() {
 
          // store the access jwt token in local storage
          localStorage.setItem('access_token', res.data.Token.access)
-   
-    });
+    })
+    .catch ((error)=>{
+      console.log(error)
+      alert("company cannot login")
+    })
   };
-
-  
 
   return (
     <div className="max-w-md mx-auto mt-28  bg-white rounded-lg shadow-md p-4 border">

@@ -1,30 +1,37 @@
-import React, { useState } from 'react';
-import AddToCalendar from 'react-add-to-calendar'; // Import 'react-add-to-calendar' if you have installed it
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import axios for making HTTP requests
+// import AddToCalendar from 'react-add-to-calendar';
 
 const EventPopup = ({ event, onClose }) => {
-  // State for ticket information
-  const [eventName, setEventName] = useState('');
+  // const [eventName, setEventName] = useState('');
   const [ticketType, setTicketType] = useState('');
   const [numTickets, setNumTickets] = useState(0);
   const [ticketPrice, setTicketPrice] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
 
-  // Handlers for ticket information changes
+  useEffect(() => {
+    // Fetch ticket prices when ticketType changes
+    if (ticketType !== '') {
+      axios.get(`https://event-ticketing-backend.onrender.com/events/${event.id}/tickets`)
+        .then(response => {
+          // Find the ticket with the corresponding type
+          const ticket = response.data.find(ticket => ticket.ticket_type === ticketType);
+          if (ticket) {
+            setTicketPrice(ticket.price);
+          } else {
+            // Handle case when ticket type is not found
+            setTicketPrice(0);
+          }
+        })
+        .catch(error => {
+          // Handle error
+          console.error('Error fetching ticket data:', error);
+        });
+    }
+  }, [ticketType, event.id]);
+
   const handleTicketTypeChange = (event) => {
     setTicketType(event.target.value);
-    switch (event.target.value) {
-      case 'VVIP':
-        setTicketPrice(100); 
-        break;
-      case 'VIP':
-        setTicketPrice(75); 
-        break;
-      case 'Regular':
-        setTicketPrice(50); 
-        break;
-      default:
-        setTicketPrice(0);
-    }
   };
 
   const handleNumTicketsChange = (event) => {
@@ -34,42 +41,17 @@ const EventPopup = ({ event, onClose }) => {
   const calculateTotalAmount = () => {
     setTotalAmount(numTickets * ticketPrice);
   };
-
-  
-  const calendarEvent = {
-    title: event.name,
-    description: event.description,
-    location: event.venue,
-    startTime: new Date(event.startDate),
-    endTime: new Date(event.endDate)
-  };
+//
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
       <div className="bg-white rounded-lg p-8 max-w-md h-4/5 overflow-y-auto">
         <img src={event.event_image} alt={event.event_name} className="w-full h-auto rounded-md mb-4" />
-        <h2 className="text-2xl font-bold mb-4">{event.event_name}</h2>
-        <p className="mb-2"><strong>VENUE:</strong> {event.venue_name.toUpperCase()}</p>
-        <p className="mb-2"><strong>START DATE:</strong> {event.start_date}</p>
-        <p className="mb-2"><strong>END DATE:</strong> {event.end_date}</p>
-        <p className="mb-2"><strong>TIME:</strong> {event.event_time}</p>
-        {/* <p><strong>Number of People:</strong> {event.capacity}</p> */}
-        
-        
+        <h2 className="font-bold text-xl mb-4">EVENT NAME: {event.event_name}</h2>
+        {/* Ticket form */}
         <div className="mt-6">
           <h3 className="text-xl font-semibold mb-2">Ticket Payment</h3>
           <form className="space-y-4">
-            <div>
-              <label className="block">
-                <span className="text-gray-700">Event Name:</span>
-                <input
-                  type="text"
-                  value={eventName}
-                  onChange={(e) => setEventName(e.target.value)}
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                />
-              </label>
-            </div>
             <div>
               <label className="block">
                 <span className="text-gray-700">Ticket Type:</span>
@@ -78,6 +60,7 @@ const EventPopup = ({ event, onClose }) => {
                   onChange={handleTicketTypeChange}
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 >
+                  <option value="">Select Ticket Type</option>
                   <option value="VVIP">VVIP</option>
                   <option value="VIP">VIP</option>
                   <option value="Regular">Regular</option>
@@ -86,10 +69,22 @@ const EventPopup = ({ event, onClose }) => {
             </div>
             <div>
               <label className="block">
-                <span className="text-gray-700">Number of Tickets:</span>
+                <span className="text-gray-700">Ticket Price:</span>
                 <input
-                  type="number"
-                  value={numTickets}
+                  value={ticketPrice}
+                  readOnly // Prevent user input
+                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                />
+              </label>
+            </div>
+            <div>
+              <label className="block">
+                <span className="text-gray-700">Number of Tickets:</span>
+                  <input
+                    type='text'
+                    pattern='\d*'
+                    inputMode='numeric'                  
+                    value={numTickets}
                   onChange={handleNumTicketsChange}
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                 />
@@ -103,20 +98,21 @@ const EventPopup = ({ event, onClose }) => {
               Calculate Total
             </button>
           </form>
+          {/* Summary */}
           <div className="mt-4">
             <h4 className="text-lg font-semibold">Summary:</h4>
-            <p>Event Name: {eventName}</p>
+            <p>Event Name: {event.event_name}</p>
             <p>Ticket Type: {ticketType}</p>
             <p>Number of Tickets: {numTickets}</p>
-            <p>Total Amount: ${totalAmount}</p>
+            <p>Total Amount: KSH{totalAmount}</p>
           </div>
         </div>
-        {/* End Ticket Payment Form */}
-
+        {/* Buttons */}
         <div className="flex justify-end mt-6">
           <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2" onClick={onClose}>
             Close
           </button>
+          {/* integrate the order section button onclick */}
           <button className="bg-green-500 text-white px-4 py-2 rounded-md">
             Buy Ticket
           </button>

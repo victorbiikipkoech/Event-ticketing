@@ -15,7 +15,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/auth/login',{username,password})
+    axios.post('https://event-ticketing-backend.onrender.com/auth/login',{username,password})
     .then(res => {
       console.log(res)
       alert('logged in succesfully')
@@ -25,7 +25,11 @@ function Login() {
          // store the access jwt token in local storage
          localStorage.setItem('access_token', res.data.Token.access)
    
-    });
+    })
+    .catch(err => {
+      console.log(err)
+      alert('Invalid username or password')
+    })
   };
 
   return (
