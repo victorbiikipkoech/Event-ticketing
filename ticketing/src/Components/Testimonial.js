@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import Navbar from './Navbar';
 import John_Morgan from '../images/John_Morgan.jpg';
 import Ellie_Anderson from '../images/Ellie_Anderson.jpg';
 import Nia_Adebayo from '../images/Nia_Adebayo.jpg';
@@ -35,7 +36,7 @@ const Testimonial = () => {
     {
       name: 'Ellie Mike',
       img: Ellie_Anderson,
-      review: 'EventTicketing made it incredibly easy for me to discover new events in my area. I found tickets for a comedy show last minute, and the whole process was so convenient. Will definitely use again! and thank you.',
+      review: 'EventTicketing made it incredibly easy for me to discover new events in my area. I found tickets for a comedy show last minute, and the whole process was so convenient. Will definitely use again!.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
@@ -44,7 +45,7 @@ const Testimonial = () => {
     {
       name: 'Maurine Wam',
       img: Nia_Adebayo,
-      review: 'Ive been using EventTicketing for all my event needs, and it never disappoints. Whether its concerts, sports games, or theater shows, I always find great deals and have a blast. Thank you very much, EventTicketing.',
+      review: 'Ive been using EventTicketing for all my event needs, and it never disappoints. Whether its concerts, sports games, or theater shows, I always find great deals and have a blast. Thanks, EventTicketing.',
       facebook: 'https://www.facebook.com/',
       instagram: 'https://www.instagram.com/',
       linkedin: 'https://www.linkedin.com/',
@@ -72,7 +73,8 @@ const Testimonial = () => {
 
   return (
     <div className='w-full h-full flex flex-col justify-between'>
-      <div className="mt-28 mb-28 mx-auto w-4/5">
+      <Navbar /> {/* Include the Navbar component here */}
+      <div className="mt-28 mb-10 mx-auto w-4/5">
         <Slider {...settings} className="testimonial-slider">
           {data.map((d) => (
             <div key={d.name} className="bg-blue-100 rounded-lg shadow-lg p-4 flex flex-col justify-between">
@@ -94,12 +96,9 @@ const Testimonial = () => {
             </div>
           ))}
         </Slider>
-        
-        
       </div>
       <Footer />
     </div>
-    
   );
 }
 
