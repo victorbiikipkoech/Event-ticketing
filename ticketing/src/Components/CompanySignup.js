@@ -20,7 +20,7 @@ function SignUpForm() {
       console.log(res)
       alert('registered in succesfully')
 
-      navigate('/login')
+      navigate('/companylogin')
     })
     .catch ((error)=>{
       alert('company cannot be registered')
