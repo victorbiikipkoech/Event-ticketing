@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-
-
 function Signup() {
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,15 +20,17 @@ function Signup() {
       alert('registered in succesfully')
 
       navigate('/login')
-
- 
-    });
-    alert('user cannot be registered')
+    })
+    .catch((err)=>{
+      console.log(err)
+      alert("user cannot register")
+    })
+       
   };
 
   return (
     
-    <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
+    <div className="max-w-md mx-auto mt-28 bg-white rounded-lg shadow-md p-4 border">
       <h2 className="text-2xl font-bold mb-4 text-center">User Sign Up</h2>
       <form onSubmit={handleSubmit} className="p-4 mt-2">
       <label className="block mb-2">
