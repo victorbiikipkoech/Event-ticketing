@@ -15,22 +15,25 @@ function SignUpForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/auth/signup',{company_name,company_email,company_contact,password})
+    axios.post('https://event-ticketing-backend.onrender.com/auth/signup',{company_name,company_email,company_contact,password})
     .then(res => {
       console.log(res)
       alert('registered in succesfully')
 
       navigate('/login')
-    });
+    })
+    .catch ((error)=>{
+      alert('company cannot be registered')
+      console.log(error)
+    })
 
-    alert('company cannot be registered')
 
     
   };
 
   return (
     
-    <div className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border">
+    <div className="max-w-md mx-auto mt-28 bg-white rounded-lg shadow-md p-4 border">
       <h2 className="text-2xl font-bold mb-4 text-center">Company SignUp</h2>
       <form onSubmit={handleSubmit} className="p-4 mt-2">
         <label className="block mb-2">

@@ -14,7 +14,7 @@ function UserDashboard() {
                 Authorization: `Bearer ${accessToken}`,
               },
             };
-            const response = await axios.get('/userorder',config)
+            const response = await axios.get('https://event-ticketing-backend.onrender.com/userorder',config)
             setOrderHistory(response.data)
             console.log(response.data)
 

@@ -72,7 +72,7 @@ const Testimonial = () => {
 
   return (
     <div className='w-full h-full flex flex-col justify-between'>
-      <div className="mt-28 mb-28 mx-auto w-4/5">
+      <div className="mt-28 mb-28 mx-auto w-4/5 ">
         <Slider {...settings} className="testimonial-slider">
           {data.map((d) => (
             <div key={d.name} className="bg-blue-100 rounded-lg shadow-lg p-4 flex flex-col justify-between">
@@ -80,7 +80,8 @@ const Testimonial = () => {
                 <div className="bg-blue-400 rounded-full w-32 h-32 flex items-center justify-center border-2 border-blue-400">
                   <img src={d.img} alt="" className="w-24 h-24 rounded-full" />
                 </div>
-                <div className="flex flex-col items-center justify-center mt-4">
+                <div className="flex flex-col items-center justify-center mt-4 h-50">
+
                   <p className="font-bold text-lg mb-2">{d.name}</p>
                   <p className="text-center text-gray-900">{d.review}</p>
                 </div>

@@ -15,12 +15,12 @@ function CompanyInfo() {
           },
         };
         // Fetch user's company data
-        const response = await axios.get('/company', config);
+        const response = await axios.get('https://event-ticketing-backend.onrender.com/company', config);
         setUserData(response.data);
         console.log(response.data);
 
         // Fetch company events
-        const eventsResponse = await axios.get('/companyevents', config);
+        const eventsResponse = await axios.get('https://event-ticketing-backend.onrender.com/companyevents', config);
 
         const sortedEvents = eventsResponse.data.sort((a, b) => {
           return new Date(b.start_date) - new Date(a.start_date);
@@ -43,8 +43,8 @@ function CompanyInfo() {
         },
       };
 
-      const response = await axios.delete(`/delete_event/${eventId}`, config);
-      alert('Do you want to delete this event?')
+      const response = await axios.delete(`https://event-ticketing-backend.onrender.com/delete_event/${eventId}`, config);
+      alert('Do you want to delete this event?',response)
 
       // Update the events state to remove the deleted event
       setEvents(events.filter(event => event.id !== eventId));
@@ -56,29 +56,29 @@ function CompanyInfo() {
   return (
     <div className="container mx-auto mt-14 mb-14 p-4">
    <h1 className="text-2xl font-bold text-gray-800">
-  Welcome Back: {userData.company_name ? userData.company_name : 'User'}
+  WELCOME BACK: {userData.company_name ? userData.company_name.toUpperCase() : 'User'}
     </h1>
 
-      <div mt-7 mb-7>
+      <div className='mt-7'>
         <p className="text-gray-600">
           <a href="/createevent" className="text-blue-500 hover:underline">
             Create An Event
           </a>
         </p>
       </div>
-      <h2 className="text-2xl font-bold mb-4">Company Events</h2>
+      <h2 className="text-2xl font-bold mb-4">YOUR EVENTS:</h2>
       <ul>
         {events.map((event, index) => (
           <li key={index} className="mb-8">
             <div className="shadow-md  my-4 mb-7 bg-gray-200 rounded-lg p-4">
-              <p className="text-xl font-semibold">{event.event_name.toUpperCase()}</p>
-              <p className="text-gray-700">{event.description.toUpperCase()}</p>
+              <p className="text-xl font-semibold">EVENT NAME: {event.event_name.toUpperCase()}</p>
+              <p className="text-gray-700">ABOUT: {event.description.toUpperCase()}</p>
               <div className="flex items-center mt-2">
                 <p className="mr-4">
-                  <strong>Start Date:</strong> {event.start_date}
+                  <strong>START DATE:</strong> {event.start_date}
                 </p>
                 <p>
-                  <strong>End Date:</strong> {event.end_date}
+                  <strong>END DATE:</strong> {event.end_date}
                 </p>
                 <p>
                   <strong>Time:</strong> {event.event_time}
@@ -86,14 +86,14 @@ function CompanyInfo() {
               </div>
               <div className="flex items-center mt-2">
                 <p className="mr-4">
-                  <strong>Venue:</strong> {event.venue_name}
+                  <strong>VENUE:</strong> {event.venue_name}
                 </p>
                 <p>
-                  <strong>Location:</strong> {event.location}
+                  <strong>LOCATION:</strong> {event.location}
                 </p>
               </div>
               <div className="mt-2">
-                <p className="font-semibold">Ticket Categories:</p>
+                <p className="font-semibold">TICKET QUANTITY:</p>
                 <ul>
                   {Object.entries(event.ticket_categories).map(([category, quantity]) => (
                     <li key={category} className="ml-4">

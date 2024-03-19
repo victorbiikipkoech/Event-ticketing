@@ -27,7 +27,7 @@ function CompanyEvent() {
         return;
       }
 
-      await axios.post('/events', {
+      await axios.post('https://event-ticketing-backend.onrender.com/events', {
         event_name,
         start_date,
         location,

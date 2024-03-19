@@ -11,7 +11,7 @@ function Contact() {
     const handleSubmit = async (e) => { 
         e.preventDefault();
 
-        axios.post('/contact', {full_name, email, message})
+        axios.post('https://event-ticketing-backend.onrender.com/contact', {full_name, email, message})
         .then(res => {
             setSubmit('success');
         })
