@@ -1,14 +1,29 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+
 
 const CompanyNavbar = () => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Perform logout actions, e.g., clearing local storage or state
-    localStorage.removeItem('access_token'); // Example action
-    navigate('/login'); // Redirect to login page after logout
-  };
+  const handleLogout = ()=> {
+    const token = localStorage.getItem('access_token');
+     // logout for the user
+     axios.get('https://event-ticketing-backend.onrender.com/auth/logout', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(() => {
+        alert('Logged out successfully');
+        localStorage.removeItem('access_token');
+        navigate('/companylogin'); // Redirect to the login page after logout
+      })
+      .catch((error) => {
+        alert("failed to logout")
+      })
+
+  }
 
   return (
     <nav className="bg-white text-gray-800 p-4 flex justify-between items-center">

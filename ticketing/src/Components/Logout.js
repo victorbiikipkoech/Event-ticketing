@@ -1,16 +1,28 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 const Logout = () => {
   const navigate = useNavigate();
+  const handleLogout = ()=> {
+    const token = localStorage.getItem('access_token');
+     // logout for the user
+     axios.get('https://event-ticketing-backend.onrender.com/auth/logout', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(() => {
+        console.log('Logged out successfully');
+        localStorage.removeItem('access_token');
+        navigate('/login'); // Redirect to the login page after logout
+      })
+      .catch((error) => {
+        alert("failed to logout")
+      })
 
-  const handleLogout = () => {
-    // Clear the access token from local storage
-    localStorage.removeItem('access_token');
-
-    // Redirect to the login page
-    navigate('/login');
-  };
+  }
 
   return (
     <div className="max-w-md mx-auto mt-28 bg-white rounded-lg shadow-md p-4 border">
