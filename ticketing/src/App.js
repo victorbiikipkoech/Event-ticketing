@@ -13,6 +13,7 @@ import CompanyInfo from './Components/CompanyInfo';
 import Signup from './Components/Signup';
 import CompanyEvent from './Components/CompanyEvent';
 import UserDashboard from './Components/UserDashboard';
+import Ticketspage from './Components/Ticketspage';
 
 
 
@@ -34,7 +35,7 @@ const App = () => {
         <Route path="/companyinfo" element={<CompanyInfo/>} />
         <Route path= "/createevent" element= {<CompanyEvent/>} />
         <Route path = "/userdashboard" element= {<UserDashboard/>}/>
-        
+        <Route path={`settickets/:event_name`} element={<Ticketspage />} />
 
       </Routes>
     </Router>

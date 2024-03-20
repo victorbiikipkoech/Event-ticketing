@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function CompanyInfo() {
   const [userData, setUserData] = useState({});
   const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -42,8 +44,8 @@ function CompanyInfo() {
           Authorization: `Bearer ${accessToken}`,
         },
       };
-
-      const response = await axios.delete(`https://event-ticketing-backend.onrender.com/delete_event/${eventId}`, config);
+  
+      const response = await axios.delete(`/delete_event/${eventId}`, config);
       alert('Do you want to delete this event?',response)
 
       // Update the events state to remove the deleted event
@@ -51,7 +53,12 @@ function CompanyInfo() {
     } catch (error) {
       console.log('Error deleting event:', error);
     }
+  };  
+
+  const handleTickets = (event_name) => {
+    navigate(`/settickets/${event_name}`);
   };
+
 
   return (
     <div className="container mx-auto mt-14 mb-14 p-4">
@@ -101,6 +108,11 @@ function CompanyInfo() {
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div className="mt-4">
+             <button className="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600" onClick={() => handleTickets(event.event_name)}>
+              Set Tickets
+              </button>
               </div>
               <div className="mt-4">
              <button className="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600" onClick={() => handleDelete(event.id)}>

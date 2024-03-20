@@ -15,7 +15,7 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://event-ticketing-backend.onrender.com/auth/companylogin',{company_name,password})
+    axios.post('/auth/companylogin',{company_name,password})
     .then(res => {
       console.log(res)
       alert('logged in succesfully')
