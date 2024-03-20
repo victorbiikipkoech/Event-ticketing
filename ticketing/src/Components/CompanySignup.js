@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import Navbar from './Navbar'; // Importing the Navbar component
 
 function SignUpForm() {
   const [company_name, setCompanyName] = useState('');
   const [company_email, setCompanyEmail] = useState('');
   const [company_contact, setCompanyContact] = useState('');
   const [password, setPassword] = useState('');
- 
-
   const navigate = useNavigate();
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     axios.post('https://event-ticketing-backend.onrender.com/auth/signup',{company_name,company_email,company_contact,password})
     .then(res => {
       console.log(res)
@@ -79,6 +77,8 @@ function SignUpForm() {
           Sign Up
         </button>
       </form>
+
+
     </div>
   );
 }
