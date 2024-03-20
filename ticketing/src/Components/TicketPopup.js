@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const TicketPopup = ({ eventName, ticketType, numTickets, totalAmount, onClose, onConfirm }) => {
+const TicketPopup = ({ eventName, ticketType, numTickets, totalAmount, onClose, onConfirmSuccess, onConfirmFailure }) => {
+  const [mpesaNumber, setMpesaNumber] = useState('');
+
   const handleConfirm = () => {
-    onConfirm();
+    // Prepare the request body
+    const requestBody = new URLSearchParams();
+    requestBody.append('amount', totalAmount); // Assuming totalAmount is in the correct format for the API
+    requestBody.append('msisdn', mpesaNumber);
+    requestBody.append('account_no', 'Your account number or identifier');
+
+    // Send the request to initiate the payment
+    fetch('https://tinypesa.com/api/v1/express/initialize', {
+      method: 'POST',
+      headers: {
+        'Apikey': 'Yv94ZI4z93',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: requestBody.toString(),
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Check the response for success or failure
+      if (data.success) {
+        // Payment initiated successfully, you can close the popup and show a success message
+        onConfirmSuccess(); // Assume onConfirmSuccess is a function passed as prop to handle success
+      } else {
+        // Payment failed, you can show an error message
+        onConfirmFailure(); // Assume onConfirmFailure is a function passed as prop to handle failure
+      }
+    })
+    .catch(error => {
+      console.error('Error initiating payment:', error);
+      // Handle any errors that occur during the request
+      onConfirmFailure(); // Assume onConfirmFailure is a function passed as prop to handle failure
+    });
   };
 
   return (
@@ -11,6 +43,13 @@ const TicketPopup = ({ eventName, ticketType, numTickets, totalAmount, onClose, 
         <h2 className="text-2xl font-bold mb-4">Confirmation</h2>
         <p className="mb-2">You are about to purchase {numTickets} {ticketType} ticket(s) for {eventName} at a total cost of ${totalAmount}.</p>
         <p className="mb-4">Please confirm your purchase.</p>
+        <input
+          type="text"
+          className="border border-gray-300 rounded-md px-3 py-2 mb-4 w-full"
+          placeholder="Enter your M-Pesa number"
+          value={mpesaNumber}
+          onChange={(e) => setMpesaNumber(e.target.value)}
+        />
         <div className="flex justify-end">
           <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2" onClick={handleConfirm}>Confirm</button>
           <button className="bg-gray-500 text-white px-4 py-2 rounded-md" onClick={onClose}>Cancel</button>
