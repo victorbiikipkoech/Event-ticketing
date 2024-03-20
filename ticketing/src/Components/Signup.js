@@ -12,16 +12,20 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/auth/register', { username, email, contact, password })
-      .then(res => {
-        console.log(res)
-        alert('registered in successfully')
-        navigate('/login')
-      })
-      .catch((err) => {
-        console.log(err)
-        alert("user cannot register")
-      })
+
+    axios.post('https://event-ticketing-backend.onrender.com/auth/register',{username,email,contact,password})
+    .then(res => {
+      console.log(res)
+      alert('registered in succesfully')
+
+      navigate('/login')
+    })
+    .catch((err)=>{
+      console.log(err)
+      alert("user cannot register")
+    })
+       
+
   };
 
   return (
