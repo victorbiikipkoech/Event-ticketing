@@ -12,7 +12,7 @@ const UserDashboard = () => {
                 const accessToken = localStorage.getItem('access_token');
                 const config = {
                     headers: {
-                        Authorization: `Bearer ${accessToken}`,
+                        Authorization: Bearer ${accessToken},
                     },
                 };
                 const response = await axios.get('/userorder', config);

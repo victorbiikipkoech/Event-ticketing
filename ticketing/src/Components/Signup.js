@@ -1,112 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import Footer from './Footer';
-import EventPopup from './EventPopup';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import evnImage from '../images/home.jpg';
-import Navbar from './Navbar'; // Import the Navbar component
-import Order from './Order';
+import Navbar from './Navbar'; // Importing Navbar component
 
-const Events = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredEvents, setFilteredEvents] = useState([]);
-  const [visibleDescription, setVisibleDescription] = useState({});
-  const [selectedEvent, setSelectedEvent] = useState(null); // State to store the selected event
-  const [event, setEvents] = useState([]);
+function Signup() {
+  const [username, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [contact, setContact] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        // Fetch user's company data
-        const response = await axios.get('/events');
-        setEvents(response.data);
-        console.log(response.data);
-      } catch(error) {
-        console.log(error);
-      }
-    };
-
-    fetchUserData();
-  }, []);
-
-  const handleSearch = () => {
-    const filtered = event.filter(event =>
-      event.event_name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredEvents(filtered);
-  };
-
-  const handleReset = () => {
-    setSearchQuery('');
-    setFilteredEvents([]);
-    setVisibleDescription({});
-  };
-
-  const toggleDescription = id => {
-    setVisibleDescription(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
-
-  // Function to handle when "View Event" button is clicked
-  const handleViewEvent = event => {
-    setSelectedEvent(event);
-  };
-
-  // Function to close the popup
-  const handleClosePopup = () => {
-    setSelectedEvent(null);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('/auth/register', { username, email, contact, password })
+      .then(res => {
+        console.log(res)
+        alert('registered in successfully')
+        navigate('/login')
+      })
+      .catch((err) => {
+        console.log(err)
+        alert("user cannot register")
+      })
   };
 
   return (
-    <>
-      <Navbar /> {/* Include the Navbar component here */}
-      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28 mb-16"> {/* Increased margin-bottom for more space */}
-        <div className="relative flex items-center w-full mb-4">
-          <input
-            type="text"
-            placeholder="Search by event name"
-            className="w-4/6 px-5 py-2 ml-40 border rounded-l-md focus:outline-none"
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-          />
+    <div>
+      <Navbar /> {/* Including Navbar component */}
+      <div className="max-w-md mx-auto mt-28 bg-white rounded-lg shadow-md p-4 border">
+        <h2 className="text-2xl font-bold mb-4 text-center">User Sign Up</h2>
+        <form onSubmit={handleSubmit} className="p-4 mt-2">
+          <label className="block mb-2">
+            User Name:
+            <input
+              type="text"
+              className="form input border rounded-md w-full py-2 px-3"
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </label>
+          <label className="block mb-2">
+            Email:
+            <input
+              type="email"
+              className="form input border rounded-md w-full py-2 px-3"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label className="block mb-2">
+            Contact:
+            <input
+              type="number"
+              className="form-input border rounded-md w-full py-2 px-3"
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
+            />
+          </label>
+          <label className="block mb-2">
+            Password:
+            <input
+              type="password"
+              className="form-input border rounded-md w-full py-2 px-3"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-r-md ml-2"
-            onClick={handleSearch}
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
           >
-            Search
+            Sign Up
           </button>
-        </div>
-
-        {(filteredEvents.length > 0 ? filteredEvents : event).map(event => (
-          <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white text-black">
-              <img className="w-80 h-80 " src={event.event_image || evnImage} alt={event.event_name} />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2  text-center">{event.event_name.toUpperCase()}</div> {/* Changed text color to white */}
-                {visibleDescription[event.id] && (
-                  <p className="text-white text-base">{event.description}</p>
-                )}
-              </div>
-              <div className="px-6 pt-4 pb-2 text-center">
-                <button
-                  className="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2"
-                  onClick={() => handleViewEvent(event)} 
-                >
-                  View Event
-                </button>
-              </div>
-            </div>
-            ))}
-            </div>
-        
-        {/* Render the EventPopup component if selectedEvent is not null */}
-        {selectedEvent && (
-          <EventPopup event={selectedEvent} onClose={handleClosePopup} />
-        )}
-        <Footer />
-    </>
+        </form>
+      </div>
+    </div>
   );
-};
+}
 
-export default Events;
-
+export default Signup;

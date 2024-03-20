@@ -12,16 +12,21 @@ const Events = () => {
   const [visibleDescription, setVisibleDescription] = useState({});
   const [selectedEvent, setSelectedEvent] = useState(null); // State to store the selected event
   const [event, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         // Fetch user's company data
-        const response = await axios.get('/events');
+        const response = await axios.get('https://event-ticketing-backend.onrender.com/events');
         setEvents(response.data);
         console.log(response.data);
-      } catch (error) {
+        setLoading(false);
+        
+        } catch(error) {
         console.log(error);
+        setLoading(false);
       }
     };
 
@@ -35,18 +40,18 @@ const Events = () => {
     setFilteredEvents(filtered);
   };
 
-  const handleReset = () => {
-    setSearchQuery('');
-    setFilteredEvents([]);
-    setVisibleDescription({});
-  };
+  // const handleReset = () => {
+  //   setSearchQuery('');
+  //   setFilteredEvents([]);
+  //   setVisibleDescription({});
+  // };
 
-  const toggleDescription = id => {
-    setVisibleDescription(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
+  // const toggleDescription = id => {
+  //   setVisibleDescription(prev => ({
+  //     ...prev,
+  //     [id]: !prev[id]
+  //   }));
+  // };
 
   // Function to handle when "View Event" button is clicked
   const handleViewEvent = event => {
@@ -77,12 +82,16 @@ const Events = () => {
             Search
           </button>
         </div>
-
-        {(filteredEvents.length > 0 ? filteredEvents : event).map(event => (
-          <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white text-black">
+                {loading ? (
+          <p>Loading events data...</p>
+        ) : (
+          (filteredEvents.length > 0 ? filteredEvents : event).map(event => (
+            <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white text-black">
               <img className="w-80 h-80 " src={event.event_image || evnImage} alt={event.event_name} />
               <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2  text-center">{event.event_name.toUpperCase()}</div>
+
+                <div className="font-bold text-xl mb-2  text-center">{event.event_name}</div> {/* Changed text color to white */}
+
                 {visibleDescription[event.id] && (
                   <p className="text-white text-base">{event.description}</p>
                 )}
@@ -96,13 +105,16 @@ const Events = () => {
                 </button>
               </div>
             </div>
-        ))}
-      </div>
 
-      {/* Render the EventPopup component if selectedEvent is not null */}
-      {selectedEvent && (
-        <EventPopup event={selectedEvent} onClose={handleClosePopup} />
-      )}
+          ))
+        )}
+          
+          {selectedEvent && (
+            <EventPopup event={selectedEvent} onClose={handleClosePopup} />
+          )}
+          </div>
+
+
     
       <Footer />
     </>
