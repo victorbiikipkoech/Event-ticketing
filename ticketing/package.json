@@ -1,9 +1,9 @@
 {
   "name": "ticketing",
   "version": "0.1.0",
-  "proxy": "http://127.0.0.1:5555",
   "private": true,
   "dependencies": {
+    "axios": "^1.6.7",
     "@reduxjs/toolkit": "^2.2.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
