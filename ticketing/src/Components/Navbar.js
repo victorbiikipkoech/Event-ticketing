@@ -49,6 +49,7 @@ const Navbar = () => {
                 <a href="/login" className="ml-6 text-gray-800 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
                   Login
                 </a>
+
               </div>
             </div>
             <div className="flex items-center" style={{ marginLeft: '3cm' }}>

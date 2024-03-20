@@ -10,19 +10,24 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/auth/companylogin', { company_name, password })
-      .then(res => {
-        console.log(res);
-        alert('logged in successfully');
-        navigate('/companyinfo');
-        // store the access jwt token in local storage
-        localStorage.setItem('access_token', res.data.Token.access);
-      })
-      .catch(error => {
-        console.error('Login failed:', error);
-        alert('Failed to log in. Please check your credentials.');
-      });
+
+    axios.post('https://event-ticketing-backend.onrender.com/auth/companylogin',{company_name,password})
+    .then(res => {
+      console.log(res)
+      alert('logged in succesfully')
+
+      navigate('/companyinfo')
+
+         // store the access jwt token in local storage
+         localStorage.setItem('access_token', res.data.Token.access)
+    })
+    .catch ((error)=>{
+      console.log(error)
+      alert("company cannot login")
+    })
+
   };
+
 
   return (
     <div>

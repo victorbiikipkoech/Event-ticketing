@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Navbar from './Navbar'; // Import the Navbar component
+import UsersNavbar from './UsersNavbar'; // Import the UsersNavbar component
 import Footer from './Footer';
 
-function Contact() {
+function Support() {
     const [full_name, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
@@ -12,7 +12,7 @@ function Contact() {
     const handleSubmit = async (e) => { 
         e.preventDefault();
 
-        axios.post('https://event-ticketing-backend.onrender.com/contact', {full_name, email, message})
+        axios.post('/contact', {full_name, email, message})
         .then(res => {
             setSubmit('success');
         })
@@ -28,7 +28,8 @@ function Contact() {
     
     return (
         <>
-            <Navbar /> {/* Include the Navbar component here */}
+            <UsersNavbar /> {/* Render the UsersNavbar component */}
+
             <div 
              className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border"
              style={{ marginBottom: '4rem' }} // Add margin-bottom for space between contact form and footer
@@ -100,4 +101,4 @@ function Contact() {
     );
 }
 
-export default Contact;
+export default Support;

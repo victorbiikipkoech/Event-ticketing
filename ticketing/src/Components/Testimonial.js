@@ -72,6 +72,7 @@ const Testimonial = () => {
   ];
 
   return (
+
     <div>
       <Navbar /> {/* Include the Navbar component */}
       <div className='w-full h-full flex flex-col justify-between'>

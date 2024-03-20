@@ -12,6 +12,10 @@ import Login from './Components/Login';
 import Signup from './Components/Signup';
 import CompanyInfo from './Components/CompanyInfo';
 import CompanyEvent from './Components/CompanyEvent';
+import Logout from './Components/Logout';
+import Buy from './Components/Buy';
+import Support from './Components/Support';
+import UpcomingEvents from './Components/UpcomingEvents';
 import UserDashboard from './Components/UserDashboard';
 
 const App = () => {
@@ -30,8 +34,11 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/companyinfo" element={<CompanyInfo />} />
           <Route path="/createevent" element={<CompanyEvent />} />
-          
-          
+          <Route path="/support" element={<Support />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/how-to-buy-ticket" element={<Buy />} />
+          <Route path="/upcoming-events" element={<UpcomingEvents />} />
+          <Route path="/userdashboard" element={<UserDashboard />} />
         </Routes>
       </div>
     </Router>
