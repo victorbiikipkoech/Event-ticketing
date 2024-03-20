@@ -17,9 +17,9 @@ const About = () => {
           
           <div className="flex flex-wrap -mx-4 items-start">
             <div className="w-full lg:w-1/2 px-4">
-              <h2 className="text-3xl font-bold mb-6">About Us</h2>
+              {/* <h2 className="text-3xl font-bold mb-6">About Us</h2> */}
               <p className="mb-4">
-                Eventix revolutionizes event ticketing with a user-centric platform for easy access to memorable live experiences. We bridge event enthusiasts and organizers, celebrating community and unforgettable moments in just a few clicks.
+                Event Tickets revolutionizes event ticketing with a user-centric platform for easy access to memorable live experiences. We bridge event enthusiasts and organizers, celebrating community and unforgettable moments in just a few clicks.
               </p>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="mb-4">
