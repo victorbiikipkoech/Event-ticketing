@@ -49,7 +49,7 @@ const EventPopup = ({ event, onClose }) => {
       const response = await fetch(url, {
         body: `amount=${totalAmount}&msisdn=${mpesaContact}&account_no=1180183034869`,
         headers: {
-          Apikey: "Yv94ZI4z93",
+          Apikey: apiKey,
           "Content-Type": "application/x-www-form-urlencoded",
         },
         method: "POST",
