@@ -1,32 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import TicketPopup from './TicketPopup'; // Assuming TicketPopup is another component you have
-// import AddToCalendar from 'react-add-to-calendar';
+import TicketPopup from './TicketPopup'; 
 
 const EventPopup = ({ event, onClose }) => {
   const [ticketType, setTicketType] = useState('');
   const [numTickets, setNumTickets] = useState(0);
   const [ticketPrice, setTicketPrice] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
+  const [mpesaContact, setMpesaContact] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
-    // Fetch ticket prices when ticketType changes
     if (ticketType !== '') {
       axios.get(`https://event-ticketing-backend.onrender.com/events/${event.id}/tickets`)
         .then((response) => {
-          // Find the ticket with the corresponding type
-          // Update ticketPrice accordingly
           const ticket = response.data.find((ticket) => ticket.ticket_type === ticketType);
           if (ticket) {
             setTicketPrice(ticket.price);
           } else {
-            // Handle case when ticket type is not found
             setTicketPrice(0);
           }
         })
         .catch((error) => {
-          // Handle error
           console.error('Error fetching ticket data:', error);
         });
     }
@@ -45,31 +40,35 @@ const EventPopup = ({ event, onClose }) => {
   };
 
   const handleBuyTicket = async () => {
+    setShowConfirmation(true);
+  };
+
+  const handleConfirmPayment = async () => {
     try {
       const url = "https://tinypesa.com/api/v1/express/initialize";
       const response = await fetch(url, {
-        body: "amount=50&msisdn=0795864080&account_no=1180183034869",
+        body: `amount=${totalAmount}&msisdn=${mpesaContact}&account_no=1180183034869`,
         headers: {
-          Apikey: "Yv94ZI4z93",
+          Apikey: apiKey,
           "Content-Type": "application/x-www-form-urlencoded",
         },
         method: "POST",
       });
       
-      // Log the response
       console.log('Response:', response);
-  
-      // Handle the response, e.g., check if the payment was successful
-      // For now, let's assume the payment was successful
-      alert('Payment successful!');
-  
-      onClose(); // Close the popup
+
+      if (response.ok) {
+        alert('Payment successful!');
+      } else {
+        alert('Failed to process payment');
+      }
+
+      onClose();
     } catch (error) {
       console.error('Error processing payment:', error);
       alert('Failed to process payment');
     }
   };
-  
 
   return (
     <>
@@ -80,7 +79,8 @@ const EventPopup = ({ event, onClose }) => {
           numTickets={numTickets}
           totalAmount={totalAmount}
           onClose={() => setShowConfirmation(false)}
-          onBuy={handleBuyTicket}
+          onConfirmSuccess={handleConfirmPayment}
+          onConfirmFailure={() => setShowConfirmation(false)}
         />
       ) : (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar'; 
+
 
 function CompanyEvent() {
   const [start_date, setStartDate] = useState('');
@@ -59,6 +61,7 @@ function CompanyEvent() {
   };
 
   return (
+
     <div className="container mx-auto ">
       <h1 className="text-2xl font-bold text-center mb-4 mt-10">CREATE AN EVENT</h1>
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -160,6 +163,7 @@ function CompanyEvent() {
           <button type='submit' className="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-96">Create Event</button>
         </div>
       </form>
+
     </div>
   );
 }

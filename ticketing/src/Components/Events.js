@@ -1,9 +1,10 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from './Footer';
 import EventPopup from './EventPopup';
 import axios from 'axios';
 import evnImage from '../images/home.jpg';
-// import Order from './Order';
+import Order from './Order';
+import Navbar from './Navbar'; // Import the Navbar component
 
 const Events = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,7 +13,6 @@ const Events = () => {
   const [selectedEvent, setSelectedEvent] = useState(null); // State to store the selected event
   const [event, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
 
   useEffect(() => {
@@ -65,7 +65,8 @@ const Events = () => {
 
   return (
     <>
-      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28 mb-28"> {/* Increased margin-bottom for more space */}
+      <Navbar /> {/* Include the Navbar component */}
+      <div className="container mx-auto flex flex-wrap justify-center gap-4 mt-28 mb-28">
         <div className="relative flex items-center w-full mb-14">
           <input
             type="text"
@@ -88,7 +89,9 @@ const Events = () => {
             <div key={event.id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white text-black">
               <img className="w-80 h-80 " src={event.event_image || evnImage} alt={event.event_name} />
               <div className="px-6 py-4">
+
                 <div className="font-bold text-xl mb-2  text-center">{event.event_name}</div> {/* Changed text color to white */}
+
                 {visibleDescription[event.id] && (
                   <p className="text-white text-base">{event.description}</p>
                 )}
@@ -102,6 +105,7 @@ const Events = () => {
                 </button>
               </div>
             </div>
+
           ))
         )}
           
@@ -111,7 +115,6 @@ const Events = () => {
           </div>
 
 
-        
     
       <Footer />
     </>

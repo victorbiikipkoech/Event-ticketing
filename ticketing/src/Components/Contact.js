@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Footer from './Footer'; // Import the Footer component
+import Navbar from './Navbar'; // Import the Navbar component
+import Footer from './Footer';
 
 function Contact() {
     const [full_name, setFullName] = useState('');
@@ -27,6 +28,7 @@ function Contact() {
     
     return (
         <>
+            <Navbar /> {/* Include the Navbar component here */}
             <div 
              className="max-w-md mx-auto mt-28 p-10 bg-white rounded-lg shadow-md p-4 border"
              style={{ marginBottom: '4rem' }} // Add margin-bottom for space between contact form and footer

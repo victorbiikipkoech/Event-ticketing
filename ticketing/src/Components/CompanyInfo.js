@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import CompanyNavbar from './CompanyNavbar';
 
 function CompanyInfo() {
   const [userData, setUserData] = useState({});
@@ -62,6 +63,9 @@ function CompanyInfo() {
 
   return (
     <div className="container mx-auto mt-14 mb-14 p-4">
+      <div>
+      <CompanyNavbar/>
+      </div>
    <h1 className="text-2xl font-bold text-gray-800">
   WELCOME BACK: {userData.company_name ? userData.company_name.toUpperCase() : 'User'}
     </h1>
@@ -74,6 +78,7 @@ function CompanyInfo() {
         </p>
       </div>
       <h2 className="text-2xl font-bold mb-4">YOUR EVENTS:</h2>
+
       <ul>
         {events.map((event, index) => (
           <li key={index} className="mb-8">
