@@ -78,6 +78,7 @@ function SignUpForm() {
         </button>
       </form>
 
+
     </div>
   );
 }

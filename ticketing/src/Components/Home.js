@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <div>
       <Navbar /> {/* Render the Navbar component */}
+
       <div className='absolute top-0 left-0 z-0 w-full h-screen overflow-hidden '>
         <video className='w-full h-full object-cover object-bottom mx-auto' autoPlay loop muted>
           <source src={videoBackground} type='video/mp4' />

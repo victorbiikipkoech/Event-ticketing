@@ -10,7 +10,9 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     axios.post('https://event-ticketing-backend.onrender.com/auth/login',{username,password})
+
       .then(res => {
         console.log(res);
         alert('Logged in successfully');

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import Navbar from './Navbar'; // Import the Navbar component
-import Footer from './Footer'; // Import the Footer component
+import Navbar from './Navbar'; // Assuming Navbar is in the same directory
+
 import AboutUsImage from '../images/about.jpg'; // Header image
 import AboutVideo from '../images/secondary.mp4'; // Video
 import SecondaryImage2 from '../images/Team.jpg'; // Second secondary image
@@ -9,7 +9,8 @@ import SecondaryImage2 from '../images/Team.jpg'; // Second secondary image
 const About = () => {
   return (
     <div>
-      <Navbar /> {/* Include the Navbar component here */}
+      <Navbar /> {/* Include the Navbar component */}
+      
       <div className="bg-white min-h-screen p-8 mt-10">
         <div className="max-w-4xl mx-auto">
           <img src={AboutUsImage} alt="About Us" className="w-full object-cover rounded-lg mb-8" />
@@ -22,7 +23,7 @@ const About = () => {
               </p>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="mb-4">
-                our mission is to provide a seamless and enjoyable experience for event-goers to find, book, and attend their favorite events, while also empowering event organizers to reach their audience effectively.
+                Our mission is to provide a seamless and enjoyable experience for event-goers to find, book, and attend their favorite events, while also empowering event organizers to reach their audience effectively.
               </p>
               <img src={SecondaryImage2} alt="Secondary 2" className="w-full object-cover rounded-lg mb-4" />
             </div>
@@ -53,9 +54,8 @@ const About = () => {
 
         </div>
       </div>
-      <Footer /> 
     </div>
   );
-}
+};
 
 export default About;

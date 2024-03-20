@@ -28,6 +28,7 @@ function LoginForm() {
 
   };
 
+
   return (
     <div>
       <Navbar /> {/* Include the Navbar component */}

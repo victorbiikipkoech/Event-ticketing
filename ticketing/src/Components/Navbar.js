@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import logoImage from '../images/logo.png';
 import { Link } from 'react-router-dom';
@@ -6,7 +5,6 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const closeMobileMenu = () => setClick(false);
-
 
   return (
     <div onClick={closeMobileMenu}>
@@ -16,7 +14,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center">
               <img className='h-20' src={logoImage} alt='logo' />
             </Link>
-            <div className={`lg:flex lg:justify-center space-x-6 ${click ? 'block' : 'hidden'}`}>
+            <div className={`${click ? 'block' : 'hidden'} lg:flex lg:justify-center space-x-6`}>
               <div>
                 <Link to="/" className="block text-center text-xl text-gray-800 hover:text-blue-600 transition duration-300 ease-in-out" onClick={closeMobileMenu}>
                   Home
@@ -44,22 +42,18 @@ const Navbar = () => {
               </div>
 
               <div className='ml-12'>
+                <Link to="/companylogin" className="text-gray-800 ml-20 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
+                  Create Event
+                </Link>
 
-
-              <Link to="/companylogin" className="text-gray-800 ml-20 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
-                Create Event
-              </Link>
-
-              <a href="/login" className=" ml-6 text-gray-800 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
-                Login
-              </a>
+                <a href="/login" className="ml-6 text-gray-800 hover:text-blue-600 transition duration-300 ease-in-out text-xl">
+                  Login
+                </a>
 
               </div>
-
             </div>
             <div className="flex items-center" style={{ marginLeft: '3cm' }}>
-            
-             
+              {/* Any additional elements you want to include */}
             </div>
             <div className="lg:hidden cursor-pointer" onClick={() => setClick(!click)}>
               <svg className="w-6 h-6 text-gray-800 hover:text-blue-600 transition duration-300 ease-in-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
