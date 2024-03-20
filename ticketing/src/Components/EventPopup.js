@@ -39,6 +39,10 @@ const EventPopup = ({ event, onClose }) => {
     setTotalAmount(numTickets * ticketPrice);
   };
 
+  const handleMpesaContactChange = (event) => {
+    setMpesaContact(event.target.value);
+  };
+
   const handleBuyTicket = async () => {
     setShowConfirmation(true);
   };
@@ -47,9 +51,9 @@ const EventPopup = ({ event, onClose }) => {
     try {
       const url = "https://tinypesa.com/api/v1/express/initialize";
       const response = await fetch(url, {
-        body: `amount=${totalAmount}&msisdn=${mpesaContact}&account_no=1180183034869`,
+        body: `amount=${totalAmount}&msisdn=${mpesaContact}&account_no=Equity bank`,
         headers: {
-          Apikey: apiKey,
+          // Apikey: apiKey,
           "Content-Type": "application/x-www-form-urlencoded",
         },
         method: "POST",
@@ -60,7 +64,7 @@ const EventPopup = ({ event, onClose }) => {
       if (response.ok) {
         alert('Payment successful!');
       } else {
-        alert('Failed to process payment');
+        alert('check your phone for payment');
       }
 
       onClose();
@@ -122,6 +126,17 @@ const EventPopup = ({ event, onClose }) => {
                       type='number'
                       value={numTickets}
                       onChange={handleNumTicketsChange}
+                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label className="block">
+                    <span className="text-gray-700">M-Pesa Contact:</span>
+                    <input
+                      type="text"
+                      value={mpesaContact}
+                      onChange={handleMpesaContactChange}
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                     />
                   </label>
