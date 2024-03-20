@@ -11,15 +11,9 @@ const CompanyNavbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
-      {/* Existing navigation links */}
-      <Link to="/" className="p-2">Home</Link>
-      <Link to="/about" className="p-2">About</Link>
-      <Link to="/events" className="p-2">Events</Link>
-      {/* More links here */}
-      
-      {/* Right-aligned buttons */}
-      <div>
+    <nav className="bg-white text-gray-800 p-4 flex justify-between items-center">
+      {/* Buttons aligned to the right */}
+      <div className="ml-auto">
         <Link to="/createevent" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">
           Create Event
         </Link>

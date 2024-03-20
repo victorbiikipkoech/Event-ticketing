@@ -1,4 +1,3 @@
-/ src/components/CompanyEventDetail.js
 import React from 'react';
 
 const CompanyEventDetail = () => {
