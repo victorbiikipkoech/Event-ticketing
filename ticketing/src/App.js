@@ -17,6 +17,7 @@ import Buy from './Components/Buy';
 import Support from './Components/Support';
 import UpcomingEvents from './Components/UpcomingEvents';
 import UserDashboard from './Components/UserDashboard';
+import Ticketspage from './Components/Ticketspage';
 
 const App = () => {
   return (
@@ -39,8 +40,10 @@ const App = () => {
           <Route path="/how-to-buy-ticket" element={<Buy />} />
           <Route path="/upcoming-events" element={<UpcomingEvents />} />
           <Route path="/userdashboard" element={<UserDashboard />} />
+          <Route path={`settickets/:event_name`} element={<Ticketspage />} />
         </Routes>
       </div>
+
     </Router>
   );
 };
