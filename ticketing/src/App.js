@@ -40,7 +40,7 @@ const App = () => {
           <Route path="/how-to-buy-ticket" element={<Buy />} />
           <Route path="/upcoming-events" element={<UpcomingEvents />} />
           <Route path="/userdashboard" element={<UserDashboard />} />
-          <Route path={`settickets/:event_name`} element={<Ticketspage />} />
+          <Route path="settickets/:event_name" element={<Ticketspage />} />
         </Routes>
       </div>
 
