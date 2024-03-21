@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/victorbiikipkoech.github.io/Event-ticketing/static/css/main.2dde83f6.css",
+    "main.js": "/victorbiikipkoech.github.io/Event-ticketing/static/js/main.2ec91a5d.js",
+    "static/js/453.a5c03cd4.chunk.js": "/victorbiikipkoech.github.io/Event-ticketing/static/js/453.a5c03cd4.chunk.js",
+    "static/media/background-video.mp4": "/victorbiikipkoech.github.io/Event-ticketing/static/media/background-video.4fc2cb98a02fda258648.mp4",
+    "static/media/secondary.mp4": "/victorbiikipkoech.github.io/Event-ticketing/static/media/secondary.16785e7c4c7445510414.mp4",
+    "static/media/Rigo_Louie.jpg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/Rigo_Louie.0730fe81bf6809fdacbb.jpg",
+    "static/media/Mia_Williams.jpg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/Mia_Williams.402145efff16817ed34b.jpg",
+    "static/media/Nia_Adebayo.jpg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/Nia_Adebayo.513ae17cd97f6b3e5a82.jpg",
+    "static/media/Ellie_Anderson.jpg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/Ellie_Anderson.5a1cf775746e8c6ea451.jpg",
+    "static/media/John_Morgan.jpg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/John_Morgan.75e54495bea86be45e69.jpg",
+    "static/media/home.jpg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/home.6c764488345f61428623.jpg",
+    "static/media/about.jpg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/about.4446f68a2894d17c7774.jpg",
+    "static/media/Team.jpg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/Team.d6e7194f7bb10319e312.jpg",
+    "static/media/slick.svg": "/victorbiikipkoech.github.io/Event-ticketing/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/victorbiikipkoech.github.io/Event-ticketing/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/victorbiikipkoech.github.io/Event-ticketing/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/victorbiikipkoech.github.io/Event-ticketing/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/victorbiikipkoech.github.io/Event-ticketing/index.html",
+    "main.2dde83f6.css.map": "/victorbiikipkoech.github.io/Event-ticketing/static/css/main.2dde83f6.css.map",
+    "main.2ec91a5d.js.map": "/victorbiikipkoech.github.io/Event-ticketing/static/js/main.2ec91a5d.js.map",
+    "453.a5c03cd4.chunk.js.map": "/victorbiikipkoech.github.io/Event-ticketing/static/js/453.a5c03cd4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2dde83f6.css",
+    "static/js/main.2ec91a5d.js"
+  ]
+}
