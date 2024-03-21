@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/Event-ticketing/ticketing/static/css/main.eae71944.css",
-    "main.js": "/Event-ticketing/ticketing/static/js/main.c243578d.js",
-    "static/js/453.a5c03cd4.chunk.js": "/Event-ticketing/ticketing/static/js/453.a5c03cd4.chunk.js",
-    "static/media/background-video.mp4": "/Event-ticketing/ticketing/static/media/background-video.4fc2cb98a02fda258648.mp4",
-    "static/media/secondary.mp4": "/Event-ticketing/ticketing/static/media/secondary.16785e7c4c7445510414.mp4",
-    "static/media/Rigo_Louie.jpg": "/Event-ticketing/ticketing/static/media/Rigo_Louie.0730fe81bf6809fdacbb.jpg",
-    "static/media/Mia_Williams.jpg": "/Event-ticketing/ticketing/static/media/Mia_Williams.402145efff16817ed34b.jpg",
-    "static/media/Nia_Adebayo.jpg": "/Event-ticketing/ticketing/static/media/Nia_Adebayo.513ae17cd97f6b3e5a82.jpg",
-    "static/media/Ellie_Anderson.jpg": "/Event-ticketing/ticketing/static/media/Ellie_Anderson.5a1cf775746e8c6ea451.jpg",
-    "static/media/John_Morgan.jpg": "/Event-ticketing/ticketing/static/media/John_Morgan.75e54495bea86be45e69.jpg",
-    "static/media/home.jpg": "/Event-ticketing/ticketing/static/media/home.6c764488345f61428623.jpg",
-    "static/media/about.jpg": "/Event-ticketing/ticketing/static/media/about.4446f68a2894d17c7774.jpg",
-    "static/media/Team.jpg": "/Event-ticketing/ticketing/static/media/Team.d6e7194f7bb10319e312.jpg",
-    "static/media/slick.svg": "/Event-ticketing/ticketing/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/Event-ticketing/ticketing/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/Event-ticketing/ticketing/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/Event-ticketing/ticketing/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/Event-ticketing/ticketing/index.html",
-    "main.eae71944.css.map": "/Event-ticketing/ticketing/static/css/main.eae71944.css.map",
-    "main.c243578d.js.map": "/Event-ticketing/ticketing/static/js/main.c243578d.js.map",
-    "453.a5c03cd4.chunk.js.map": "/Event-ticketing/ticketing/static/js/453.a5c03cd4.chunk.js.map"
+    "main.css": "/Event-ticketing/static/css/main.756330b3.css",
+    "main.js": "/Event-ticketing/static/js/main.93043e8d.js",
+    "static/js/453.a5c03cd4.chunk.js": "/Event-ticketing/static/js/453.a5c03cd4.chunk.js",
+    "static/media/background-video.mp4": "/Event-ticketing/static/media/background-video.4fc2cb98a02fda258648.mp4",
+    "static/media/secondary.mp4": "/Event-ticketing/static/media/secondary.16785e7c4c7445510414.mp4",
+    "static/media/Rigo_Louie.jpg": "/Event-ticketing/static/media/Rigo_Louie.0730fe81bf6809fdacbb.jpg",
+    "static/media/Mia_Williams.jpg": "/Event-ticketing/static/media/Mia_Williams.402145efff16817ed34b.jpg",
+    "static/media/Nia_Adebayo.jpg": "/Event-ticketing/static/media/Nia_Adebayo.513ae17cd97f6b3e5a82.jpg",
+    "static/media/Ellie_Anderson.jpg": "/Event-ticketing/static/media/Ellie_Anderson.5a1cf775746e8c6ea451.jpg",
+    "static/media/John_Morgan.jpg": "/Event-ticketing/static/media/John_Morgan.75e54495bea86be45e69.jpg",
+    "static/media/home.jpg": "/Event-ticketing/static/media/home.6c764488345f61428623.jpg",
+    "static/media/about.jpg": "/Event-ticketing/static/media/about.4446f68a2894d17c7774.jpg",
+    "static/media/Team.jpg": "/Event-ticketing/static/media/Team.d6e7194f7bb10319e312.jpg",
+    "static/media/slick.svg": "/Event-ticketing/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Event-ticketing/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Event-ticketing/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/Event-ticketing/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/Event-ticketing/index.html",
+    "main.756330b3.css.map": "/Event-ticketing/static/css/main.756330b3.css.map",
+    "main.93043e8d.js.map": "/Event-ticketing/static/js/main.93043e8d.js.map",
+    "453.a5c03cd4.chunk.js.map": "/Event-ticketing/static/js/453.a5c03cd4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eae71944.css",
-    "static/js/main.c243578d.js"
+    "static/css/main.756330b3.css",
+    "static/js/main.93043e8d.js"
   ]
 }
